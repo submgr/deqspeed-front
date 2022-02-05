@@ -1,0 +1,224 @@
+/*-Footer Menu-*/
+#footer-bar {
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	z-index: 98;
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    backdrop-filter: saturate(180%) blur(20px);
+	background-color: $translucentLight;
+	display: flex;
+    min-height:61px;
+    border-top:solid 1px rgba(0,0,0,0.05);
+	text-align: center;
+	transition: transform 350ms ease!important;
+	a {
+		color: $color-dark;
+		padding-top: 12px;
+		position: relative;
+		flex: 1 1 auto;
+		span {
+			position: relative;
+			z-index: 2;
+			display: block;
+			font-size: 10px;
+			font-weight: 500;
+			margin-top: -6px;
+			opacity: 0.7;
+			font-family: $font-main-family !important;
+		}
+		i {
+			font-size: 18px;
+			position: relative;
+			z-index: 2;
+		}
+        svg{
+            transform:translateY(-6px);
+        }
+	}
+	.badge {
+		font-style: normal;
+		z-index: 5;
+		top: 0px;
+		position: absolute;
+		margin-left: 3px;
+		color: $color-white !important;
+		width: 18px;
+		text-align: center;
+		line-height: 18px;
+		padding: 0px;
+		padding-left: 0px !important;
+		border-radius: 18px;
+		margin-top: 7px;
+		font-size: 11px;
+	}
+}
+
+.footer-bar-2 {
+	.active-nav {
+		strong {
+			position: absolute;
+			width: 80px;
+			left: 50%;
+			transform: translateX(-50%);
+			top: 0px;
+			bottom: 0px;
+		}
+		color: $color-white !important;
+	}
+}
+.footer-bar-4 {
+	.active-nav {
+		strong {
+			position: absolute;
+			width: 47px;
+			height: 47px;
+			border-radius: 60px;
+			left: 50%;
+			top: 30px;
+			transform: translate(-50%, -50%);
+			bottom: 0px;
+		}
+		color: $color-white !important;
+	}
+	span {
+		display: none !important;
+	}
+	i {
+		padding-top: 10px;
+	}
+}
+.footer-bar-5 {
+	.active-nav {
+		strong {
+			position: absolute;
+			width: 50px;
+			height: 2px;
+			border-radius: 60px;
+			left: 50%;
+			top: 0px;
+			transform: translateX(-50%);
+		}
+	}
+}
+.footer-bar-3 {
+	span {
+		display: none !important;
+	}
+	.active-nav {
+		span {
+			display: block !important;
+		}
+		padding-top: 11px !important;
+	}
+	a {
+		padding-top: 18px !important;
+	}
+}
+.footer-menu-hidden {
+	transition: all 100ms ease;
+	transform: translateY(100%) !important;
+}
+.footer-bar-white {
+	* {
+		color: $color-white;
+	}
+}
+#footer-bar.position-relative {
+	z-index: 2 !important;
+}
+
+#footer-bar {
+    height: calc(65px + (constant(safe-area-inset-bottom))*1.1);
+    height: calc(65px + (env(safe-area-inset-bottom))*1.1);
+}
+.is-not-ios {
+	.footer-menu-clear {
+		height: 70px;
+		display: block;
+	}
+	.footer {
+		padding-bottom: 0px;
+	}
+	#footer-menu {
+		a {
+			i {
+				padding-top: 13px;
+			}
+			span {
+				opacity: 0.6;
+			}
+		}
+	}
+}
+
+
+
+.footer-bar-6 u{background-color:rgba(255,255,255,0.20);}
+.footer-bar-6 {
+    margin-left:-3px;
+    span{font-size:11px!important;}
+    i{transform:translateY(-2px); opacity:0.7;}
+    .circle-nav {
+		strong {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            left: 50%;
+            top: -23px;
+            z-index: 0;
+            transform: translateX(-50%);
+            box-shadow:0 5px 15px 0 rgba(0,0,0,0.09); 
+            animation: footerAni 1s infinite;
+            background-image: $defaultGradient
+        }
+        @keyframes footerAni {
+            0% {transform:scale(1,1) translateX(-50%);}
+            50% {transform:scale(1.05, 1.05) translateX(-48%);}
+        }
+        span{
+            font-size:11px!important;
+            margin-top:-8px!important;
+        }
+        i{
+            transform:translateY(-21px) translateX(0px);
+            color:#FFF!important;
+            opacity:1!important;
+            font-size:20px!important;
+            position:relative;
+            z-index:2;
+        }
+        svg{
+            width:25px!important;
+            height:25px!important;
+            stroke:#FFF!important;
+            fill:rgba(255,255,255,0.1)!important;
+            transform:translateY(-25px) translateX(-1px)!important;
+            position:relative;
+            z-index:2;
+        }
+        u{
+            position:absolute;
+            left:0px;
+            right:0px;
+            width:50px;
+            border-radius:50px;
+            height:50px;
+            z-index:0;
+        }
+	}
+	.active-nav {
+		em {
+			position: absolute;
+			width: 60px;
+			height: 4px;
+			border-radius: 60px;
+			left: 50%;
+			top: 57px;
+			transform: translateX(-50%);
+            background-image: $defaultGradient
+		}
+	}
+}

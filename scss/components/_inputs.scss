@@ -1,0 +1,358 @@
+input[type="range"] {
+	-webkit-appearance: none;
+	height: 20px;
+	width: 100%;
+	outline: none;
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		width: 20px;
+		height: 20px;
+		background: #F26B5E;
+		position: relative;
+		z-index: 3;
+		&:after {
+			content: " ";
+			height: 10px;
+			position: absolute;
+			z-index: 1;
+			right: 20px;
+			top: 5px;
+			background: #ff5b32;
+			background: linear-gradient(to right, #f088fc 1%, #AC6CFF 70%);
+		}
+	}
+}
+
+
+/*File Upload*/
+.upload-file {
+	text-indent: -999px;
+	outline: none;
+	width: 100%;
+	height: 45px;
+	color: $color_transparent !important;
+}
+.upload-file-text {
+	pointer-events: none;
+	margin-top: -36px !important;
+	text-align: center;
+	color: $color_white;
+	height: 10px;
+	text-transform: uppercase;
+	font-weight: 900;
+}
+.file-data {
+	input[type='file'] {
+		font-size: 0px !important;
+	}
+}
+input {
+	font-size: 12px !important;
+	&::placeholder {
+		font-size: 12px !important;
+	}
+	&:focus {
+		outline: none;
+	}
+}
+select {
+	&:focus {
+		outline: none;
+	}
+}
+textarea {
+	&:focus {
+		outline: none;
+	}
+}
+button {
+	&:focus {
+		outline: none;
+	}
+}
+
+.tooltip{font-size:13px;}
+code{font-size:11px; line-height:22px;}
+
+.stepper {
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	width: 102px;
+	border: solid 1px rgba(0,0,0,0.1);
+	input {
+		&::-webkit-outer-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		&::-webkit-inner-spin-button {
+			-webkit-appearance: none;
+			margin: 0;
+		}
+		height: 33px;
+		width: 33px;
+		float: left;
+		border: none !important;
+		text-align: center;
+		display: block;
+		line-height: 33px;
+		font-size: 11px !important;
+        background-color:transparent;
+	}
+	a {
+		text-align: center;
+		width: 33px;
+		height: 33px;
+		line-height: 33px;
+		font-size: 9px;
+		&:first-child {
+			float: left;
+			border-right: solid 1px rgba(0,0,0,0.1);
+		}
+		&:last-child {
+			float: right;
+			border-left: solid 1px rgba(0,0,0,0.1);
+		}
+	}
+}
+
+.btn, input, select{
+    box-shadow:none !important;
+    outline:0px !important;
+}
+
+//Custom Inputs
+input:hover,
+input:focus,
+input:active,
+select:hover,
+select:focus,
+select:active,
+select option,
+textarea:hover,
+textarea:focus,
+textarea:active,
+.btn:hover,
+.btn:focus,
+.btn:active,
+button:hover,
+button:focus,
+button:active{
+  outline: none;
+  box-shadow: none !important;
+  -webkit-appearance: none!important;
+}
+
+
+.theme-light input, select, textarea{border-color:rgba(0,0,0,.08)!important;}
+
+.input-style{position:relative; margin-bottom:15px!important;}
+.input-style input,
+.input-style select,
+.input-style textarea{
+    font-size:12px;
+    width:100%;
+    line-height:45px;
+    height:45px;
+    border-top-width:0px;
+    border-right-width:0px;
+    border-left-width:0px;
+    padding:0px;
+    border-radius:0px;
+}
+
+.input-style select,
+.input-style select option,
+.input-style select option:disabled{
+   -webkit-appearance: none!important;
+   -moz-appearance:    none!important;
+   appearance:         none!important;
+}
+
+.input-style label{
+    opacity:0;
+    left:0px!important;
+    transform:translateX(30px);
+    position:absolute;
+    top:-12px;
+    height:10px;
+    font-size:10px;
+    transition:all 150ms ease;
+    background-color:#FFF;
+}
+
+.input-style-active label{
+    opacity:1;
+    transform:none!important;
+}
+
+.input-style.has-icon i:first-child{
+    position:absolute;
+    top:50%;
+    width:10px;
+    text-align:center;
+    margin-top:-8px;
+}
+.input-style.has-icon.has-borders i:first-child{
+    position:absolute;
+    top:50%;
+    width:10px;
+    padding-left:15px!important;
+    text-align:center;
+    margin-top:-7px;
+}
+
+.input-style.has-icon.has-borders input,
+.input-style.has-icon.has-borders select,
+.input-style.has-icon.has-borders textarea{
+    padding-left:35px!important
+}
+
+.input-style.has-icon input,
+.input-style.has-icon select,
+.input-style.has-icon textarea{
+    padding-left:25px;
+}
+
+.input-style input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity:0.3;
+}
+
+.input-style textarea{
+    line-height:32px!important;
+    padding-top:10px!important;
+    transition:all 250ms ease!important;
+}
+
+.input-style textarea:focus{
+    line-height:24px!important;
+}
+
+.input-style select{color:inherit;}
+.input-style input[type="date"]{color:inherit;}
+
+
+.input-style em,
+.input-style span,
+.input-style .valid,
+.input-style .invalid{
+    position:absolute;
+    top:50%;
+    margin-top:-5px;
+    right:5px;
+    pointer-events: none;
+}
+.input-style em,
+.input-style span{margin-top:-12px; font-size:10px; font-style: normal; opacity:0.3;}
+
+
+.input-style.has-borders input,
+.input-style.has-borders select,
+.input-style.has-borders textarea{
+    height:53px;
+    border-left-width: 1px!important;
+    border-right-width: 1px!important;
+    border-top-width: 1px!important;
+    padding-left:13px!important;
+    padding-right:10px!important;
+    border-radius:10px!important;
+}
+
+
+.input-style.has-borders .valid,
+.input-style.has-borders .invalid,
+.input-style.has-borders span,
+.input-style.has-borders em{
+    margin-right:10px;
+}
+.input-style.input-style-active label{
+    left:4px!important;
+    transform:translateX(-14px)!important;
+    position:absolute;
+    padding:0px  8px!important;
+    height:23px;
+    font-size:12px;
+    transition:all 250ms ease;
+    background-color:#FFF;
+}
+
+.input-style.has-borders.input-style-active label{
+    margin-left:14px!important;
+}
+
+.input-style textarea:focus{
+    height:150px;
+    transition:all 250ms ease!important;
+}
+
+
+.input-style.no-borders.input-style-always-active label{
+    opacity:1;
+    left:6px!important;
+    transform:translateX(-14px)!important;
+    margin-left:0px!important;
+    position:absolute;
+    padding:0px  8px!important;
+    height:23px;
+    font-size:12px;
+    transition:all 250ms ease;
+    background-color:#FFF;
+}
+
+.input-style.has-borders.input-style-always-active label{
+    opacity:1;
+    left:23px!important;
+    transform:translateX(-14px)!important;
+    margin-left:0px!important;
+    position:absolute;
+    padding:0px  5px!important;
+    height:23px;
+    font-size:12px;
+    transition:all 250ms ease;
+    background-color:#FFF;
+}
+
+/*Remove Number Arrows*/
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+
+
+.input-transparent *{
+    color:#FFF!important;
+    background-color:transparent!important;
+}
+
+.input-transparent.no-borders input{
+    border-bottom-width: 1px!important;
+    border-color:rgba(255,255,255,0.1)!important
+}
+
+
+.menu .input-style input,
+.menu .input-style select{
+    background-color:transparent!important;
+}
+
+//Fix for Android Input Type Date
+.device-is-android .input-style input[type=date] {
+    color: inherit!important;
+    line-height: 25px!important;
+    padding-top:12px!important;
+    height: 55px!important;
+    transform:translateY(7px) translateX(0px)!important;
+    margin-bottom:30px!important;
+}
+.device-is-android .input-style input[type=date] ~ label.color-highlight{margin-top:7px!important;}
+
+//iOS15 Settings - iOS15 Fixes will come here if needed.
+.min-ios15 select{background-color:inherit!important;}
+.min-ios15 input[type="date"]{-webkit-appearance: none; text-align:left!important; text-indent:calc(-100% + 70px) !important;}

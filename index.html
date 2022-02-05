@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html lang="ru">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+<title>AppKit Mobile</title>
+<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="styles/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">    
+<link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+</head>
+    
+<body class="theme-dark">
+    
+<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+    
+<div id="page">
+    
+    <div class="header header-fixed header-logo-center header-auto-show">
+        <a href="index.html" class="header-title">Добро пожаловать</a>
+        <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-chevron-left"></i></a>
+        <a href="#" data-menu="menu-main" class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-3 show-on-theme-dark"><i class="fas fa-sun"></i></a>
+        <a href="#" data-toggle-theme class="header-icon header-icon-3 show-on-theme-light"><i class="fas fa-moon"></i></a>
+    </div>
+
+    <div id="preloader-processing">
+        <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
+    </div>
+    <div id="page-content" class="page-content pb-0 speedtest-app__mainController">   
+            
+        <div class="splide single-slider slider-no-arrows slider-no-dots" id="single-slider-1" data-splide='{"autoplay":true}'>
+            <div class="splide__track">
+                <div class="splide__list">
+                    <div class="splide__slide">
+                        <div class="card rounded-0" data-card-height="cover-full">
+                            <div class="card-top text-center mt-5">
+                                <h1 class="font-18 font-700 color-highlight mb-n1">Привет, это —</h1>
+                                <h1 class="font-40 font-800 pb-4">DeqSpeed</h1>
+                                <h4 class="opacity-60 mb-4 pb-4">Абсолютно независимый инструмент<br> для замера скорости Интернет-соединения.</h4>
+                                <img align="middle" src="graphics/images/speedtest_welcome_logo-canva-80x.png" class="mx-auto" width="70%">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="splide__slide">
+                        <div class="card rounded-0" data-card-height="cover-full">
+                            <div class="card-top text-center mt-5">
+                                <h1 class="font-18 font-700 color-highlight mb-n1">Привет, это —</h1>
+                                <h1 class="font-40 font-800 pb-4">DeqSpeed</h1>
+                                <h4 class="opacity-60 mb-4 pb-4">Множество серверов по всему миру, <br> а также инновационные подходы к тестированию скорости сети.</h4>
+                                <img align="middle" src="graphics/images/speedtest_worldwide-canva.png" class="mx-auto" width="70%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        
+        <div class="slider-bottom-button bg-theme">
+            <p data-menu="modal-iframe-privacy-policy" class="text-center mb-2 opacity-90" style="cursor: pointer;">Политика конфиденциальности</p>
+            <a href="#" id="button_firstUse_letsgo" class="btn btn-m btn-full ms-5 me-5 rounded-sm border-highlight color-highlight font-600 font-13 mt-3 mb-3">Давайте уже начнем!</a>
+        </div>
+        
+        
+        
+    </div>
+    <!-- Page content ends here-->
+    <div id="modal-iframe-privacy-policy"
+         class="menu menu-box-modal rounded-0"
+         data-menu-width="cover"
+         data-menu-height="cover">
+        <div class="card-center">
+            <div class="content">
+                <h1 class="font-36">Privacy</h1>
+                <p class="mt-n2 color-highlight font-600 font-12">Политика конфиденциальности сервиса DeqSpeed.</p>
+                <p>
+                    <iframe class="alow_text-selection" src="https://deqstudio.com/privacy/services/deqspeed/lang/ru/"
+                        frameborder="0" 
+                        marginheight="0" 
+                        marginwidth="0" 
+                        width="100%" 
+                        height="500px" 
+                        scrolling="auto"></iframe>
+                </p>
+                <a href="#" class="mb-1 btn btn-m font-600 gradient-blue close-menu">Скрыть</a>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+<script type="text/javascript" src="scripts/custom.js"></script>
+</body>

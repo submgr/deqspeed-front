@@ -1,0 +1,50 @@
+/*Interests Page*/
+.interest-check input{
+    position:absolute!important;
+    transform:translateX(-150524px);
+}
+
+.interest-check .fa-check-circle{display:none;}
+.interest-check i{
+    width:20px;
+    text-align:center;
+    pointer-events: none;
+    position:absolute;
+    left:30px;
+    top:0px;
+    height:40px;
+    line-height:40px;
+}
+
+.interest-check{
+    margin-left:-20px;
+    margin-right:10px;
+    margin-bottom:35px;
+    height:22px;
+    cursor: pointer;
+    position: relative;
+    width:auto;
+    display:inline-block;
+}
+
+.interest-check label{
+    cursor: pointer;
+    font-weight:500;
+    font-size:13px;
+    font-family:$font-heading-family;
+    padding:8px 15px 8px 40px;
+}
+
+.interest-check input:checked ~ .fa{
+    display:block!important;
+}
+.interest-check input:checked ~ label{
+    color:#FFF!important;
+    background-color:$colorHighlightDark!important;
+}
+.interest-check input:checked ~ .fa:last-child,
+.interest-check input:checked ~ .fab:last-child,
+.interest-check input:checked ~ .fas:last-child,
+.interest-check input:checked ~ .far:last-child{
+    display:none!important;
+}

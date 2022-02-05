@@ -1,0 +1,93 @@
+/* Generating Color Pack*/
+
+$defaultGradient : linear-gradient(to bottom, rgba(27,85,191,1) 0%, rgba(23,64,191,1) 100%)!important;
+$colorHighlightLight: #5D9CEC;
+$colorHighlightDark: #4A89DC;
+
+
+$colorPack: (
+    "highlight" $colorHighlightLight $colorHighlightDark, 
+    "green" #A0D468 #8CC152 rgba(140, 193, 82, 0.3) rgba(140, 193, 82, 0.7), 
+    "grass" #34cc73 #2ABA66 rgba(140, 193, 82, 0.3) rgba(140, 193, 82, 0.7), 
+    "red" #ED5565 #DA4453 rgba(218, 68, 83, 0.3) rgba(218, 68, 83, 0.7), 
+    "orange" #FC6E51 #E9573F rgba(233, 87, 63, 0.3) rgba(233, 87, 63, 0.7), 
+    "yellow" #FFCE54 #F6BB42 rgba(246, 187, 66, 0.3) rgba(246, 187, 66, 0.7), 
+    "sunny" #f0b31b #d99914 rgba(246, 187, 66, 0.3) rgba(246, 187, 66, 0.7), 
+    "blue" #5D9CEC #4A89DC rgba(74, 137, 220, 0.3) rgba(74, 137, 220, 0.7), 
+    "teal" #A0CECB #7DB1B1 rgba(125, 177, 177, 0.3) rgba(125, 177, 177, 0.7), 
+    "mint" #48CFAD #37BC9B rgba(55, 188, 155, 0.3) rgba(55, 188, 155, 0.7), 
+    "pink" #EC87C0 #D770AD rgba(215, 112, 173, 0.3) rgba(215, 112, 173, 0.7), 
+    "pink2" #ff5982 #fb3365 rgba(215, 112, 173, 0.3) rgba(215, 112, 173, 0.7), 
+    "magenta" #AC92EC #967ADC rgba(150, 122, 220, 0.3) rgba(150, 122, 220, 0.7), 
+    "brown" #BAA286 #AA8E69 rgba(170, 142, 105, 0.3) rgba(170, 142, 105, 0.7),
+    "gray" #e2e5ea #AAB2BD rgba(170, 178, 189, 0.3) rgba(170, 178, 189, 0.7),
+    "aqua" #4FC1E9 #3BAFDA rgba(67, 74, 84, 0.3) rgba(67, 74, 84, 0.7),
+    "night" #222529 #16181c rgba(67, 74, 84, 0.3) rgba(67, 74, 84, 0.7),
+    "dark" #656D78 #434A54 rgba(67, 74, 84, 0.3) rgba(67, 74, 84, 0.7)
+);
+
+
+.color-highlight{color:nth(nth($colorPack,1),3)!important;}
+.bg-highlight{background-color:nth(nth($colorPack,1),3)!important; color:#FFF!important;}
+.border-highlight{border-color:nth(nth($colorPack,1),3)!important;}
+.gradient-highlight{background-image:linear-gradient(to bottom, nth(nth($colorPack,1),2), nth(nth($colorPack,1),3))!important; color:#FFF;}
+
+
+@each $colorName, $colorHex1, $colorHex2, $colorHex3, $colorHex4 in $colorPack{
+    .color-#{$colorName}-light{color:$colorHex1!important;}
+    .bg-#{$colorName}-light{background-color:$colorHex1!important; color:#FFF!important;}
+    .bg-fade-#{$colorName}-dark{background-color:$colorHex4!important; color:#FFF!important;}
+    .bg-fade-#{$colorName}-light{background-color:$colorHex3!important; color:#FFF!important;}
+    .color-#{$colorName}-dark{color:$colorHex2!important;}
+    .color-icon-#{$colorName}{stroke:$colorHex2!important; fill:$colorHex3!important;}
+    .bg-#{$colorName}-dark{background-color:$colorHex2!important; color:#FFF!important;}
+    .border-#{$colorName}-light{border-color:$colorHex1!important;}
+    .border-#{$colorName}-dark{border-color:$colorHex2!important;}
+    .focus-#{$colorName}:focus{border-color:$colorHex2!important;}
+    .gradient-#{$colorName}{background-image:linear-gradient(to bottom, $colorHex1 , $colorHex2);}
+}
+
+
+.theme-light input:not([type="submit"]):not(.focus-color):focus, .theme-light select:focus, .theme-light textarea:active{border-color:rgba(0,0,0,0.3)!important;}
+.theme-light [data-card-height="cover"] input:not([type="submit"]):not(.focus-color):focus, .theme-light [data-card-height="cover"] select:focus, .theme-light [data-card-height="cover"] textarea:active{border-color:rgba(255,255,255,0.3)!important;}
+.theme-dark input:not([type="submit"]):not(.focus-color):focus, .theme-dark select:focus, .theme-dark textarea:active{border-color:rgba(255,255,255,0.3)!important;}
+
+/*Social Colors*/
+$socialColors: (
+    "facebook" #3b5998, 
+    "linkedin" #0077B5, 
+    "twitter" #4099ff, 
+    "google" #d34836, 
+    "whatsapp" #34AF23, 
+    "pinterest" #C92228, 
+    "mail" #3498db, 
+    "phone" #27ae60, 
+    "instagram" #e1306c
+);
+
+@each $socialItem, $socialHex in $socialColors{
+    .color-#{$socialItem}{color:$socialHex!important;}
+    .bg-#{$socialItem}{background-color:$socialHex!important; color:#FFF;}
+}
+
+/*Default Colors*/
+.color-white{color:#FFF!important;}
+.color-black{color:#000!important;}
+.bg-white{background-color:#FFF!important;}
+.bg-black{background-color:#000!important;}
+.border-transparent{border-color:transparent!important;}
+
+/*Default Highlight Colors*/
+.footer-bar-2 .active-nav,
+.footer-bar-5 strong,
+.footer-bar-4 strong,
+.splide__pagination__page.is-active{background-color:$colorHighlightDark!important} 
+.footer-bar-1 .active-nav i,
+.footer-bar-1 .active-nav span,
+.footer-bar-3 .active-nav i{color:$colorHighlightDark!important} 
+.footer-bar-6 .circle-nav strong, .footer-bar-6 .active-nav em{background-image:linear-gradient(to bottom, $colorHighlightLight, $colorHighlightDark)!important;}
+.form-floating-over > .form-control:focus ~ label{color:$colorHighlightDark;}
+.form-floating-over > .form-control:not(:placeholder-shown) ~ label{color:$colorHighlightDark;}
+.form-floating-over > .form-select ~ label{color:$colorHighlightDark;}
+.color-highlight{color:$colorHighlightDark;}
+.bg-highlight{background-color:$colorHighlightDark; color:#FFF!important;}

@@ -1,0 +1,40 @@
+/*Page Stucture Settings*/
+
+body{min-height:60vh;}
+.notch-clear {padding-top: calc(0px + (constant(safe-area-inset-top))*0.8) !important;padding-top: calc(0px + (env(safe-area-inset-top))*0.8) !important;}
+.notch-push{transform:translateY(-150%)!important; top: calc(0px + (constant(safe-area-inset-top))*0.8) !important; top: calc(0px + (env(safe-area-inset-top))*0.8) !important;}
+
+#page {
+	position: relative;
+    min-height:60vh;
+}
+.page-content {
+	overflow-x: hidden;
+	transition: $globalTransitions;
+	z-index: 90;
+	padding-bottom: 80px;
+	padding-bottom: calc(80px + (constant(safe-area-inset-bottom))*1.1);
+	padding-bottom: calc(80px + (env(safe-area-inset-bottom))*1.1);
+}
+.content-box {
+	background-color: $theme-light-structure;
+	border-radius: $rounded-m;
+	margin-left: $globalMargin/2;
+	margin-right: $globalMargin/2;
+	box-shadow: $shadow-m;
+}
+/*Content Boxes*/
+.content {
+	margin: ($globalMargin/2)+5 $globalMargin/2 ($globalMargin - 10) $globalMargin/2;
+	p {
+		&:last-child {
+			margin-bottom: 0px;
+		}
+	}
+}
+.content-full {
+	margin: 0px;
+}
+.content-boxed {
+	padding: ($globalMargin/2)+5 $globalMargin/2 0px $globalMargin/2;
+}

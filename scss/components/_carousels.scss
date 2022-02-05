@@ -1,0 +1,69 @@
+.under-slider-btn{
+    margin-top:-20px;
+    position:relative;
+    z-index:50;
+}
+
+.splide .under-slider-btn{
+    margin-top:-45px;
+}
+
+.splide .card{overflow:hidden;}
+.double-slider .splide__pagination{margin-bottom:-15px!important;}
+
+.splide.slider-no-arrows .splide__arrows{display:none!important}
+.splide.slider-no-dots .splide__pagination{display:none!important}
+.splide.slider-arrows .splide__arrow--prev{margin-left:30px!important;}
+.splide.slider-arrows .splide__arrow--next{margin-right:30px!important;}
+
+
+.cover-button-top {
+    position: absolute;
+    width: 170px;
+    left: 50%;
+    margin-left: -85px;
+    top: 20px;
+    top: calc(20px + (constant(safe-area-inset-top))*1.1)!important;
+    top: calc(20px + (env(safe-area-inset-top))*1.1)!important;
+    z-index: 99;
+    font-size: 12px
+}
+
+.cover-button-bottom {
+    position: absolute;
+    left: 50px;
+    right: 50px;
+    bottom: 70px;
+    z-index: 99;
+    font-size: 12px
+}
+
+.cover-next {
+    position: absolute;
+    z-index: 99;
+    bottom: 20px;
+    right: 0
+}
+
+.cover-prev {
+    position: absolute;
+    z-index: 99;
+    bottom: 20px;
+    left: 0
+}
+
+.theme-light #walkthrough-slider .is-active{background:#1f1f1f!important;}
+.theme-dark #walkthrough-slider .is-active{background:#FFF!important;}
+#walkthrough-slider .splide__pagination{padding-bottom:20px}
+.slider-has-dots-over .splide__pagination{padding-bottom:40px}
+
+.visible-slider{padding-right:70px!important;}
+
+/*Owl Carousel Buttons*/
+.slider-bottom-button {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  z-index: 2;
+}

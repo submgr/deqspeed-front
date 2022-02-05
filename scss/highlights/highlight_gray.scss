@@ -1,0 +1,25 @@
+/* Generating Color Pack*/
+
+$colorHighlightLight: #d3d3d3;
+$colorHighlightDark: #979da5;
+
+.color-highlight{color:$colorHighlightDark!important;}
+.bg-highlight{background-color:$colorHighlightDark!important; color:#FFF!important;}
+.border-highlight{border-color:$colorHighlightDark!important;}
+.gradient-highlight{background-image:linear-gradient(to bottom, $colorHighlightLight, $colorHighlightDark)!important;}
+
+//.form-control:focus,
+//.form-select:focus{border-color:$colorHighlightDark!important;}
+.footer-bar-2 .active-nav,
+.footer-bar-5 strong,
+.footer-bar-4 strong,
+.splide__pagination__page.is-active{background-color:$colorHighlightDark!important} 
+.footer-bar-1 .active-nav i,
+.footer-bar-1 .active-nav span,
+.footer-bar-3 .active-nav i{color:$colorHighlightDark!important} 
+.footer-bar-6 .circle-nav strong, .footer-bar-6 .active-nav em{background-image:linear-gradient(to bottom, $colorHighlightLight, $colorHighlightDark)!important;}
+.form-floating-over > .form-control:focus ~ label{color:$colorHighlightDark;}
+.form-floating-over > .form-control:not(:placeholder-shown) ~ label{color:$colorHighlightDark;}
+.form-floating-over > .form-select ~ label{color:$colorHighlightDark;}
+.color-highlight{color:$colorHighlightDark;}
+.bg-highlight{background-color:$colorHighlightDark; color:#FFF!important;}
