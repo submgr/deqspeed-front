@@ -1,136 +1,175 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>deqSpeed: embeded as VK Mini Apps :app//prod</title>
-	<style>
-	html{
-		 overflow: auto;
-	} 
-	html, body, div, iframe{
-		margin: 0px; 
-		padding: 0px; 
-		height: 100%; 
-		border: none;
-	}
-	iframe{
-		display: block; 
-		width: 100%; 
-		border: none; 
-		overflow-y: auto; 
-		overflow-x: hidden;
-	}
-	</style>
-	<script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-	<script>
-		// Sends event to client
-		vkBridge.send('VKWebAppInit');
-		vkBridge.send("VKWebAppResizeWindow", {"width": 250, "height": 650});
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>deqSpeed: embeded as VK Mini Apps :app//prod</title>
+    <style>
+        html {
+            overflow: auto;
+        }
 
-		var day_today = new Date().getDate();
-		var interstitial_currentData;
-		var interstitial_currentData_jsonized;
+        html,
+        body,
+        div,
+        iframe {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            border: none;
+        }
 
-		vkBridge.send("VKWebAppStorageGet", {"keys": ["interstitial_ads_Expiration"]})
-						.then(function(data){
-							console.info("Loading.. getting keys: successfull.");
-							if (data.keys[0].value === null || data.keys[0].value === "") {
-								console.info("Cannot find usage logs, creating new interstitial_ads_Expiration profile.")
-								const interstitial_baseData = {
-									value: 0,
-									countedForDay: day_today,
-								}
-								vkBridge.send("VKWebAppStorageSet", {
-								   key: "interstitial_ads_Expiration",
-								   value: JSON.stringify(interstitial_baseData)
-								});
-								interstitial_currentData_jsonized = JSON.parse(interstitial_baseData);
-							} else{
-								console.log("Found usage datas in Storage for interstitial_ads_Expiration profile.")
-								interstitial_currentData = data.keys[0].value;
-								interstitial_currentData_jsonized = JSON.parse(interstitial_currentData);
-								if(day_today != interstitial_currentData_jsonized.countedForDay){
-									const interstitial_newData = {
-										value: 0,
-										countedForDay: day_today,
-									}
-									vkBridge.send("VKWebAppStorageSet", {
-									   key: "interstitial_ads_Expiration",
-									   value: JSON.stringify(interstitial_newData)
-									});
-								}
-							}
-							console.log(data);
-						})
-						.catch(error => console.log(error));
+        iframe {
+            display: block;
+            width: 100%;
+            border: none;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+    </style>
+    <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
+    <script>
+        // Sends event to client
+        vkBridge.send('VKWebAppInit');
 
-		function change_newInterstitialAd_isWatched(data, current_AdsUsed_localVar){
-			const interstitial_newData = {
-				value: current_AdsUsed_localVar + 1,
-				countedForDay: day_today,
-			}
-			vkBridge.send("VKWebAppStorageSet", {
-				key: "interstitial_ads_Expiration",
-				value: JSON.stringify(interstitial_newData)
-			});
-		}
-	vkBridge.send("VKWebAppGetAds", {})
-		.then(data => console.log(data))
-		.catch(error => console.log(error));
-	window.onmessage = function(e) {
-	    switch(e.data.type) {
-			case 'vk_story_share':
-		  		console.log("Got event for: share in story");
-		    	vkBridge.send("VKWebAppShowStoryBox", { "background_type" : "image", "url" : e.data.imagesrc });
-		    	break;
-			case 'vk_post_share':
-		  		console.log("Got event for: share on page");
-		    	vkBridge.send("VKWebAppShowWallPostBox", { "message": e.data.message, "attachments": e.data.url });
-		    	break;
-			case 'vk_appshare':
-		  		console.log("Got event for: share this app" + e.data.url);
-		    	vkBridge.send("VKWebAppShare", {"link": e.data.url});
-		    	break;
-			case 'VKWebAppClose':
-		  		console.log("Got event for: share this app");
-		    	vkBridge.send("VKWebAppClose", {"status": e.data.status, "payload": e.data.payload });
-		    	break;
-		    case 'show_Interstitial':
-			    vkBridge.send("VKWebAppStorageGet", {"keys": ["interstitial_ads_Expiration"]})
-							.then(function(data){
-								console.log("Got event for: show_Interstitial");
-						  		interstitial_currentData = data.keys[0].value;
-								interstitial_currentData_jsonized = JSON.parse(interstitial_currentData);
+        vkBridge.send("VKWebAppStorageGet", {
+            "keys": ["alreadyUsed"]
+        }).then(function(data) {
+            if (data.keys[0].value == "true") {
+                document.getElementById('iframe_block').src = "run.html";
+            }else{
+            	//great opportunity to ask for permissions
+            	vkBridge.send("VKWebAppAllowNotifications"); 
+            }
+        }).catch(error => console.log(error));
 
-								current_AdsUsed = interstitial_currentData_jsonized.value;
-						    	if(current_AdsUsed < 6){
-						    		vkBridge.send("VKWebAppShowNativeAds", {ad_format:"interstitial"})
-										.then(data => change_newInterstitialAd_isWatched(data, current_AdsUsed))
-										.catch(error => console.log(error));
-						    	} else{
-						    		console.log("There is limit we have today for *interstitial* ads. Try again tomorrow!")
-						    	}
-							})
-							.catch(error => console.log(error));
-		    	break;
-		    case 'vk_story_share':
-		    	vkBridge.send("VKWebAppGetClientVersionResult")
-						.then(data => change_newInterstitialAd_isWatched(data))
-						.catch(error => console.log(error));
-		    	break;
-		}
-	};
-</script>
+        vkBridge.send("VKWebAppResizeWindow", {
+            "width": 250,
+            "height": 650
+        });
+
+        var day_today = new Date().getDate();
+        var interstitial_currentData;
+        var interstitial_currentData_jsonized;
+
+        vkBridge.send("VKWebAppStorageGet", {
+                "keys": ["interstitial_ads_Expiration"]
+            })
+            .then(function(data) {
+                console.info("Loading.. getting keys: successfull.");
+                if (data.keys[0].value === null || data.keys[0].value === "") {
+                    console.info("Cannot find usage logs, creating new interstitial_ads_Expiration profile.")
+                    const interstitial_baseData = {
+                        value: 0,
+                        countedForDay: day_today,
+                    }
+                    vkBridge.send("VKWebAppStorageSet", {
+                        key: "interstitial_ads_Expiration",
+                        value: JSON.stringify(interstitial_baseData)
+                    });
+                    interstitial_currentData_jsonized = JSON.parse(interstitial_baseData);
+                } else {
+                    console.log("Found usage datas in Storage for interstitial_ads_Expiration profile.")
+                    interstitial_currentData = data.keys[0].value;
+                    interstitial_currentData_jsonized = JSON.parse(interstitial_currentData);
+                    if (day_today != interstitial_currentData_jsonized.countedForDay) {
+                        const interstitial_newData = {
+                            value: 0,
+                            countedForDay: day_today,
+                        }
+                        vkBridge.send("VKWebAppStorageSet", {
+                            key: "interstitial_ads_Expiration",
+                            value: JSON.stringify(interstitial_newData)
+                        });
+                    }
+                }
+                console.log(data);
+            })
+            .catch(error => console.log(error));
+
+        function change_newInterstitialAd_isWatched(data, current_AdsUsed_localVar) {
+            const interstitial_newData = {
+                value: current_AdsUsed_localVar + 1,
+                countedForDay: day_today,
+            }
+            vkBridge.send("VKWebAppStorageSet", {
+                key: "interstitial_ads_Expiration",
+                value: JSON.stringify(interstitial_newData)
+            });
+        }
+        vkBridge.send("VKWebAppGetAds", {})
+            .then(data => console.log(data))
+            .catch(error => console.log(error));
+        window.onmessage = function(e) {
+            switch (e.data.type) {
+                case 'vk_story_share':
+                    console.log("Got event for: share in story");
+                    vkBridge.send("VKWebAppShowStoryBox", {
+                        "background_type": "image",
+                        "url": e.data.imagesrc
+                    });
+                    break;
+                case 'vk_post_share':
+                    console.log("Got event for: share on page");
+                    vkBridge.send("VKWebAppShowWallPostBox", {
+                        "message": e.data.message,
+                        "attachments": e.data.url
+                    });
+                    break;
+                case 'vk_appshare':
+                    console.log("Got event for: share this app" + e.data.url);
+                    vkBridge.send("VKWebAppShare", {
+                        "link": e.data.url
+                    });
+                    break;
+                case 'VKWebAppClose':
+                    console.log("Got event for: share this app");
+                    vkBridge.send("VKWebAppClose", {
+                        "status": e.data.status,
+                        "payload": e.data.payload
+                    });
+                    break;
+                case 'show_Interstitial':
+                    vkBridge.send("VKWebAppStorageGet", {
+                            "keys": ["interstitial_ads_Expiration"]
+                        })
+                        .then(function(data) {
+                            console.log("Got event for: show_Interstitial");
+                            interstitial_currentData = data.keys[0].value;
+                            interstitial_currentData_jsonized = JSON.parse(interstitial_currentData);
+
+                            current_AdsUsed = interstitial_currentData_jsonized.value;
+                            if (current_AdsUsed < 6) {
+                                vkBridge.send("VKWebAppShowNativeAds", {
+                                        ad_format: "interstitial"
+                                    })
+                                    .then(data => change_newInterstitialAd_isWatched(data, current_AdsUsed))
+                                    .catch(error => console.log(error));
+                            } else {
+                                console.log("There is limit we have today for *interstitial* ads. Try again tomorrow!")
+                            }
+                        })
+                        .catch(error => console.log(error));
+                    break;
+                case 'vk_story_share':
+                    vkBridge.send("VKWebAppGetClientVersionResult")
+                        .then(data => change_newInterstitialAd_isWatched(data))
+                        .catch(error => console.log(error));
+                    break;
+                case 'vk_bridgeStorage_firstUseCompleted':
+                    vkBridge.send("VKWebAppStorageSet", {
+	                    key: "alreadyUsed",
+	                    value: "true"
+	                });
+                    break;
+            }
+        };
+    </script>
 </head>
+
 <body>
-	<iframe src="index.html#vk_app"
-	id="iframe_block"
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0" 
-    width="100%" 
-    height="100%" 
-    scrolling="auto"></iframe>
+    <iframe src="index.html#vk_app" id="iframe_block" frameborder="0" marginheight="0" marginwidth="0" width="100%" height="100%" scrolling="auto"></iframe>
 </body>
+
 </html>
