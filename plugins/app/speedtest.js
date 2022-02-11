@@ -44,12 +44,12 @@ var SPEEDTEST_SERVERS=[
 		pingURL:"empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
 		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	},
-        {
+	{
 		name:"demo — global server", //user friendly name for the server
-		server:"https://vibrant-jennings-c7bdb0.netlify.app/bins/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
-		dlURL:"garbage.dat",  //path to download test on this server (garbage.php or replacement)
-		ulURL:"empty.dat",  //path to upload test on this server (empty.php or replacement)
-		pingURL:"empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
+		server:"", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		dlURL:"https://submgrru.github.io/deqspeed-front/bins/garbage.dat",  //path to download test on this server (garbage.php or replacement)
+		ulURL:"https://vibrant-jennings-c7bdb0.netlify.app/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
+		pingURL:"https://vibrant-jennings-c7bdb0.netlify.app/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
 		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	}
 	//add other servers here, comma separated
