@@ -46,7 +46,7 @@ var SPEEDTEST_SERVERS=[
 	},
         {
 		name:"demo — global server", //user friendly name for the server
-		server:"https://submgrru.github.io/deqspeed-front/bins/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		server:"https://vibrant-jennings-c7bdb0.netlify.app/bins/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		dlURL:"garbage.dat",  //path to download test on this server (garbage.php or replacement)
 		ulURL:"empty.dat",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
