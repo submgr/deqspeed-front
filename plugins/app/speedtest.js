@@ -48,7 +48,7 @@ var SPEEDTEST_SERVERS=[
 		name:"Глобальный сервер — BETA", //user friendly name for the server
 		server:"https://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		dlURL:"submgrru.github.io/deqspeed-front/bins/garbage.dat",  //path to download test on this server (garbage.php or replacement)
-		ulURL:"speedtest.retzo.net/empty.php",  //path to upload test on this server (empty.php or replacement)
+		ulURL:"finew.openspeed.org/empty.php",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"submgrru.github.io/deqspeed-front/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
 		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	}
