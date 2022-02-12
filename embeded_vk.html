@@ -142,7 +142,8 @@
                             current_AdsUsed = interstitial_currentData_jsonized.value;
                             if (current_AdsUsed < 6) {
                                 vkBridge.send("VKWebAppShowNativeAds", {
-                                        ad_format: "interstitial"
+                                        ad_format: "reward",
+                                        use_waterfall: true
                                     })
                                     .then(data => change_newInterstitialAd_isWatched(data, current_AdsUsed))
                                     .catch(error => console.log(error));
