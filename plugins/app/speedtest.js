@@ -4,6 +4,14 @@ function I(i){return document.getElementById(i);}
 
 //LIST OF TEST SERVERS. See documentation for details if needed
 var SPEEDTEST_SERVERS=[
+        {
+		name:"Глобальный сервер — BETA", //user friendly name for the server
+		server:"https://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		dlURL:"deqspeed.pages.dev/bins/garbage.dat",  //path to download test on this server (garbage.php or replacement)
+		ulURL:"deqspeed.pages.dev/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
+		pingURL:"deqspeed.pages.dev/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
+		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
+	},
 	{
 		name:"Германия (Falkenstein), Hetzner", //user friendly name for the server
 		server:"https://test.deqstudio.com/speedtest/backend/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
@@ -45,7 +53,7 @@ var SPEEDTEST_SERVERS=[
 		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	},
 	{
-		name:"Глобальный сервер — BETA", //user friendly name for the server
+		name:"Глобальный сервер (2) — BETA", //user friendly name for the server
 		server:"https://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		dlURL:"submgrru.github.io/deqspeed-front/bins/garbage.dat",  //path to download test on this server (garbage.php or replacement)
 		ulURL:"lon.speedtest.clouvider.net/backend/empty.php",  //path to upload test on this server (empty.php or replacement)
@@ -53,19 +61,11 @@ var SPEEDTEST_SERVERS=[
 		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	},
 	{
-		name:"Глобальный сервер (2) — BETA", //user friendly name for the server
+		name:"Глобальный сервер (3) — BETA", //user friendly name for the server
 		server:"https://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
 		dlURL:"deqspeed-front.vercel.app/bins/garbage.dat",  //path to download test on this server (garbage.php or replacement)
 		ulURL:"lon.speedtest.clouvider.net/backend/empty.php",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"deqspeed-front.vercel.app/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
-		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
-	},
-        {
-		name:"Глобальный сервер (3) — BETA", //user friendly name for the server
-		server:"https://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
-		dlURL:"deqspeed.pages.dev/bins/garbage.dat",  //path to download test on this server (garbage.php or replacement)
-		ulURL:"deqspeed.pages.dev/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
-		pingURL:"deqspeed.pages.dev/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
 		getIpURL:"https://oracle.api.deqstudio.com/speedtest_app/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	}
 	//add other servers here, comma separated
