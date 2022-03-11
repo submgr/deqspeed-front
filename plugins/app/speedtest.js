@@ -255,7 +255,7 @@ app_moreAboutMethods.onclick = function() {
 
 app__button_shareOnStory.onclick = function() {
 	console.log("got click for: share in story");
-    window.parent.postMessage({type:"vk_story_share", imagesrc: "https://oracle.api.deqstudio.com/speedtest_app/telemetry/requestimage?id=" + location.hash.substr(1)}, '*');
+    window.parent.postMessage({type:"vk_story_share", imagesrc: "https://deqspeed.herokuapp.com/telemetry/requestimage?id=" + location.hash.substr(1)}, '*');
   };
 app__button_shareOnPage.onclick = function() {
 	console.log("got click for: share OnPage");
