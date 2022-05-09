@@ -1,6 +1,5 @@
 # DeqSpeed service
-
-![image](https://user-images.githubusercontent.com/18516370/167412504-37cad87e-5696-4886-b513-b586a9083983.png)
+![image](https://user-images.githubusercontent.com/18516370/167412504-37cad87e-5696-4886-b513-b586a9083983.png =250x250)
 
 DeqSpeed is a handy tool for objectively measuring Internet connection quality. Right in your browser you can measure such indicators as outgoing and incoming connection speeds, ping and Jitter.
 Cloudflare CDN global network is used for testing, which allows you to find out not the technical-theoretical speed, but the practical one - the speed at which you actually access sites and services on the Internet.
