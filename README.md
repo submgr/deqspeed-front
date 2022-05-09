@@ -8,7 +8,7 @@ Browser version: https://deqspeed.pages.dev/
 Also, DeqSpeed is available in the social network VKontakte as a mini-application.
 Check it out here: https://vk.com/deqspeed
 
-##But why? For what?
+## But why? For what?
 ![image](https://user-images.githubusercontent.com/18516370/167397594-d1838471-f7a4-48a0-8cac-26071c0703a2.png)
 
 The UN Sustainable Development Goals were recently presented, they will run until 2030 and consist of 17 critical areas whose solutions will change the world for the better. An important part of these plans is to provide all inhabitants of the Earth with a quality Internet connection.
