@@ -13,7 +13,7 @@ Check it out here: https://vk.com/deqspeed
 
 The UN Sustainable Development Goals were recently presented, they will run until 2030 and consist of 17 critical areas whose solutions will change the world for the better. An important part of these plans is to provide all inhabitants of the Earth with a quality Internet connection.
 
-My DeqSpeed service is first and foremost a convenient tool that can be easily used by ordinary users to check the quality of their ISP's services. This directly increases people's awareness of the quality level of their ISP's network services.
+DeqSpeed service is first and foremost a convenient tool that can be easily used by ordinary users to check the quality of their ISP's services. This directly increases people's awareness of the quality level of their ISP's network services.
 
 Similar services often give an inaccurate picture. Our project solves this problem by testing network quality through the Cloudflare Rapid Delivery Network. Their globally distributed network allows us to get a valid result. They also operate the fastest, most stable, reliable, and transparent DNS service in the world - 1.1.1.1. And their CDN service is used by more than 79% of all sites on the Internet. That is what makes testing through their network the most rational. 
 Plus, services like Speedtest have gone a long way toward making money, and their testing methods are easily circumvented. For example, major providers like Megafon often limit connection speeds on unlimited plans, but Speedtest servers are "white-listed," which is why when you test speed via Speedtest, Megafon's customers will see inflated speeds, when their actual speed is much lower due to intentional limitations.
