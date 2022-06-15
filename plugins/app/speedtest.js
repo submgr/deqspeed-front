@@ -15,7 +15,7 @@ var SPEEDTEST_SERVERS=[
 	{
 		name:"Сервер тестирования — DEV", //user friendly name for the server
 		server:"https://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
-		dlURL:"deqspeed.pages.dev/bins/5MB.bin",  //path to download test on this server (garbage.php or replacement)
+		dlURL:"deqspeed.pages.dev/bins/test-5mb.bin",  //path to download test on this server (garbage.php or replacement)
 		ulURL:"deqspeed.pages.dev/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"deqspeed.pages.dev/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
 		getIpURL:"https://deqspeed.herokuapp.com/utils/getip"  //path to getIP on this server (getIP.php or replacement)
