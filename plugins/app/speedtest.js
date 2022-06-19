@@ -301,9 +301,9 @@ app__shareThisMiniApp.onclick = function() {
 		
 		try {
 		    navigator.share(shareData)
-		    console.log("[app_/shareinfo] Shared successfully!"
+		    console.log("[app_/shareinfo] Shared successfully!");
 		  } catch(err) {
-		    console.log("[app_/shareinfo] Error on share, details: " + err
+		    console.log("[app_/shareinfo] Error on share, details: " + err);
 		  }
 	}
   };
