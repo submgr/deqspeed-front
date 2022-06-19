@@ -141,8 +141,27 @@ function startStop(){
 		s.onend=function(aborted){
             I("server").disabled=false;
             updateUI(true);
-
-            window.parent.postMessage({type: "show_Interstitial"}, '*');
+			
+	    if(localStorage.getItem('data__instanceSource') == "vkapps"){
+		window.parent.postMessage({type: "show_Interstitial"}, '*');
+	    }else if(localStorage.getItem('data__instanceSource') == "yandexgames"){
+		    ysdk.adv.showRewardedVideo({
+			  callbacks: {
+			  onOpen: () => {
+			    console.log('Video ad open.');
+			},
+			  onRewarded: () => {
+			    console.log('Rewarded!');
+			},
+			  onClose: () => {
+			    console.log('Video ad closed.');
+			}, 
+			  onError: (e) => {
+			    console.log('Error while open video ad:', e);
+			}
+		    }
+		})
+	    }
 
             I("test_shareBlock").style.display="block";
 
