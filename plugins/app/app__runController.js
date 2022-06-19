@@ -29,7 +29,9 @@ function event_getback_handler(initiated_by){
 		window.location=document.referrer;
 	}else{
 		if(!window.location.hash){
-			window.parent.postMessage({type:"VKWebAppClose", "status": "success", "payload": {"name": "test"} }, '*');
+			if(localStorage.getItem('data__instanceSource') == "vkapps"){
+				window.parent.postMessage({type:"VKWebAppClose", "status": "success", "payload": {"name": "test"} }, '*');
+			}
 		}else{
 			window.location = document.referrer;
 		}
