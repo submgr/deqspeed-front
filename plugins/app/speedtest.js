@@ -300,7 +300,7 @@ app__shareThisMiniApp.onclick = function() {
 		}
 		
 		try {
-		    await navigator.share(shareData)
+		    navigator.share(shareData)
 		    console.log("[app_/shareinfo] Shared successfully!"
 		  } catch(err) {
 		    console.log("[app_/shareinfo] Error on share, details: " + err
