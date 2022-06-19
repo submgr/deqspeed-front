@@ -21,24 +21,11 @@
 
   gtag('config', 'G-0D06VGCYVH');
   
-  function getQueryStrings() { 
-    var assoc  = {};
-    var decode = function (s) { return decodeURIComponent(s.replace(/\+/g, " ")); };
-    var queryString = location.search.substring(1); 
-    var keyValues = queryString.split('&'); 
-
-    for(var i in keyValues) { 
-      var key = keyValues[i].split('=');
-      if (key.length > 1) {
-        assoc[decode(key[0])] = decode(key[1]);
-      }
-    } 
-
-    return assoc; 
-  }
+  const params = new Proxy(new URLSearchParams(window.location.search), {
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
   
-  var qs = getQueryStrings();
-  alert("Detected the following source: " + qs["source"]);
+  alert("Detected the following source: " + params.source);
   switch (qs["source"]) {
     case "yandexgames":
       localStorage.setItem('data__instanceSource', "yandexgames");
