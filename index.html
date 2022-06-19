@@ -32,12 +32,12 @@
 
             if(localStorage.getItem("data__instanceSource") == "yandexgames"){
 
-                var yasdk_lang = yasdk.environment.i18n.lang;
-                if(available_languages.includes(yasdk_lang) == true){
+                var ysdk_lang = YandexGamesSDKEnvironment.i18n.lang;
+                if(available_languages.includes(ysdk_lang) == true){
                     app_lang = yasdk_lang;
                 }
 
-                if(yasdk_lang == "be" || yasdk_lang == "kk" || yasdk_lang == "uk" || yasdk_lang == "uz"){
+                if(ysdk_lang == "be" || ysdk_lang == "kk" || ysdk_lang == "uk" || ysdk_lang == "uz"){
                     app_lang = "ru";
                 }
             }
