@@ -10,6 +10,8 @@ if (location.protocol === 'https:') {
 //init things on startup of this module (and, also, - page, where it were requested)
 test.style.display = 'none';
 
+console.log("RunController is available now and able to perfom. Detected source: " + localStorage.getItem('data__instanceSource');
+
 app__button_changeState.onclick = function() {
 	//window.location.hash='awaiting';
 	console.log("Registered new event: app__button_changeState click.")
