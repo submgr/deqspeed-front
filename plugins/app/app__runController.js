@@ -12,7 +12,7 @@ test.style.display = 'none';
 
 console.log("RunController is available now and able to perfom. Detected source: " + localStorage.getItem('data__instanceSource'));
 
-startTest(){
+function startTest(){
 	console.log("Yay! Let's do this! Starting the test... starting the magic!");
 	test.style.display = 'block';
 	initUI();
