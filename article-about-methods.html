@@ -12,6 +12,70 @@
 <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
 <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
 <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+    <!-- Localization tool -->
+    <script type="text/javascript" src="scripts/translate.js"></script>
+    <script>
+        switch (localStorage.getItem('data__instanceSource')) {
+            case "yandexgames":
+                function initSDK() {
+                    console.log("Yandex.Games SDK has been mounted into the page, now initializing...");
+                    YaGames
+                        .init()
+                        .then(ysdk => {
+                            console.log('Yandex SDK initialized');
+                            window.ysdk = ysdk;
+                        });
+                }
+                console.log("Yandex.Games SDK will be requested right now...");
+                (function (d) {
+                    var t = d.getElementsByTagName('script')[0];
+                    var s = d.createElement('script');
+                    s.src = 'https://yandex.ru/games/sdk/v2';
+                    s.async = true;
+                    t.parentNode.insertBefore(s, t);
+                    s.onload = initSDK;
+                })(document);
+                break;
+            default:
+                console.log("Nothing to embed as an additional integration.");
+        }
+    </script>
+    <script>
+        function runTranslation_textUpdate() {
+            let user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
+            var available_languages = ['ru', 'en'];
+
+            let app_lang = "en";
+
+            if (available_languages.includes(user_lang) == true) {
+                app_lang = user_lang;
+            }
+
+            if (user_lang == "be" || user_lang == "kk" || user_lang == "uk" || user_lang == "uz") {
+                app_lang = "ru";
+            }
+
+            if (localStorage.getItem("data__instanceSource") == "yandexgames") {
+
+                var ysdk_lang = YandexGamesSDKEnvironment.i18n.lang;
+                if (available_languages.includes(ysdk_lang) == true) {
+                    app_lang = ysdk_lang;
+                }
+
+                if (ysdk_lang == "be" || ysdk_lang == "kk" || ysdk_lang == "uk" || ysdk_lang == "uz") {
+                    app_lang = "ru";
+                }
+            }
+
+            var translate = new Translate();
+            var currentLng = app_lang;
+            var attributeName = 'data-tag';
+            translate.init(attributeName, currentLng);
+            translate.process();
+        }
+    </script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D06VGCYVH"></script>
 <script>
@@ -23,7 +87,7 @@
 </script>
 </head>
 
-<body class="theme-dark">
+<body class="theme-dark" onload="runTranslation_textUpdate();">
 
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
@@ -51,102 +115,88 @@
         <!-- margin top and margin bottom negative values repesent how much you want the article to go over the above and below image-->
         <div class="card card-style card-full-right mb-2" style="margin-top:-100px; margin-bottom:-80px; z-index:1">
             <div class="content">
-                <h1>
-                    Как это работает: DeqSpeed
+                <h1 data-tag="article_about_methods_title">
+                    
                 </h1>
-                <h4>Что такое скорость сети?</h4>
+                <h4 data-tag="article_about_methods_subtitle"> </h4>
                 <p class="line-height-sm">
-                    Скорость Интернета относится к скорости, с которой данные или контент перемещаются из Всемирной паутины на Ваш домашний компьютер, планшет или смартфон. Скорость этих данных измеряется в мегабитах в секунду (Мбит/с). Один мегабит равен 1024 килобитам. Это преобразование означает, что 1 Мбит/с более чем в 1000 раз быстрее, чем 1 килобит в секунду (Кбит/с). Разница между скоростями скачивания и скоростями загрузки может быть объяснена следующим образом: скорость скачивания относится к скорости, с которой цифровые данные передаются из Интернета на Ваш компьютер, в то время как скорость загрузки - это скорость, с которой онлайн-данные передаются с Вашего компьютера в Интернет.<br>
+                    <span data-tag="article_about_methods_aboutspeed"></span><br>
                 </p>
-                <h4>Какие факторы влияют на скорость интернета?</h4>
+                <h4 data-tag="article_about_methods_factors_title">Какие факторы влияют на скорость интернета?</h4>
                 <p class="line-height-sm">
-                    Существует ряд факторов, которые могут повлиять на скорость Интернета или Ваше подключение к Интернету. Основные из них это:
-                    <br><b>— Тип подключения.</b> Тип подключения к Интернету, который Вы используете в настоящее время, может играть роль в скорости Интернета. Примеры подключений к Интернету включают мобильные (беспроводные сети), точки доступа, модем или коммутируемый доступ, широкополосный, DSL (цифровая абонентская линия), кабель, спутник, ISDN (цифровая сеть с интегрированными услугами) и многое другое.
-                    <br><b>— Пункт назначения.</b> Иногда возможности веб-сайта или сети Интернет могут влиять на скорость соединения, из-за чего пользователям приходится дольше скачивать, загружать или передавать данные. Веб-сайты, требующие передачу больших данных по сети, могут привести к тому, что Вам будет сложно ими пользоваться: скорости Вашего интернет-соединения будет недостаточно, из-за чего процесс передачи данных будет занимать куда больше времени. Если в сторонней сети существуют такие ограничения скорости Интернета, Вы не сможете скачивать или загружать контент с высокопроизводительной скоростью Интернета при посещении этого конкретного веб-сайта. <br><i>Пример: </i>сервис, к которому Вы пытаетесь обратиться, оказался неожиданно популярным среди других пользователей. Из-за такого стечения обстоятельств, время передачи контента увеличится, поскольку общая пропускная способность сервиса распределится между пользователями.<br>Альтернативный пример: Вы пришли в магазин, но помимо Вас к кассе выстроилась большая очередь. Вам придется пройти через очередь, прежде чем Вас обслужат. Если бы очереди не было, Вас обслужили бы сразу же.
-                    <br><b>— Внешние факторы.</b> Кроме того, Ваш домашний компьютер, ноутбук, планшет или смартфон должны соответствовать минимальным системным требованиям, рекомендованным поставщиком услуг высокоскоростного Интернета. Скорость Интернета может варьироваться в зависимости от конфигурации и производительности компьютеров, оборудования, программного обеспечения, приложений и других систем оборудования. Запуск нескольких устройств от одной домашней сети увеличит спрос на интернет-систему вашего дома и может повлиять на качество подключения к Интернету, что увеличит задержки и снизит скорость. Если Вы пользователь мобильной сети, то скорость может снижаться из-за плохой погоды, преград и неудачного положения пользователя (например, Вы находитесь слишком низко, — на подземном уровне парковки).
+                    <span data-tag="article_about_methods_factors_about"></span>
+                    <br><b>— <span data-tag="article_about_methods_factors_1_short"></span>.</b> <span data-tag="article_about_methods_factors_1_description"></span>
+                    <br><b>— <span data-tag="article_about_methods_factors_2_short"></span>.</b> <span data-tag="article_about_methods_factors_2_description"></span>
+                    <br><b>— <span data-tag="article_about_methods_factors_3_short"></span>.</b> <span data-tag="article_about_methods_factors_3_description"></span>
                 </p>
                 <div id="vk_ads_136507"></div>
-                <h4>Как измеряется скорость сети?</h4>
+                <h4 data-tag="article_about_methods_how_speed_is_being_measured_title"> </h4>
                 <p class="line-height-sm">
-                    DeqSpeed — это отличный инструмент для определения скорости Вашего интернет-подключения. После тестирования Вы получите информацию о скорости скачивания (Download), загрузки (Upload), и значение пинга (ping).
-                    <br><b>— Загрузка: </b> время, необходимое для извлечения данных, измеряемое в мегабитах в секунду (Мбит/с). <br>Это довольно важный показатель, поскольку большинство наших онлайн-действий требуют, чтобы мы извлекали данные из Интернета.
-                    <br><b>— Скачивание: </b> время, необходимое для отправки данных, измеряемое в мегабитах в секунду (Мбит/с). <br>Скорость загрузки важна для интерактивных видеозвонков и отправки файлов на сайты и сервисы в Интернете.
-                    <br><b>— Пинг: </b>время, необходимое между отправкой запроса и получением ответа, измеряемое в миллисекундах (мс), а также называемое задержкой. <br>Ваша скорость пинга диктует качество ваших голосовых и видеозвонков, а также вашу способность играть в онлайн-игры. Если Ваш пинг слишком высокий (200+), то, например, в играх, Вы будете подвисать.
+                    <span data-tag="article_about_methods_how_speed_is_being_measured_description"></span>
+                    <br><b>— <span data-tag="article_about_methods_how_speed_is_being_measured_description_factors_1_title"></span>: <span data-tag="article_about_methods_how_speed_is_being_measured_description_factors_1_description"></span></b> 
+                    <br><b>— <span data-tag="article_about_methods_how_speed_is_being_measured_description_factors_2_title"></span>: <span data-tag="article_about_methods_how_speed_is_being_measured_description_factors_2_description"></span></b> 
+                    <br><b>— <span data-tag="article_about_methods_how_speed_is_being_measured_description_factors_3_title"></span>: <span data-tag="article_about_methods_how_speed_is_being_measured_description_factors_3_description"></span></b> 
                 </p>
-                <h4>Какая скорость считается хорошей?</h4>
+                <h4 data-tag="article_about_methods_good_speed_title"> </h4>
                 <p class="line-height-sm">
-                    Имейте в виду, что то, что представляет собой «хорошая скорость Интернета», сводится к нескольким факторам. Одним из них является то, какую онлайн-деятельность Вы пытаетесь выполнить. Просмотр веб-страниц, проверка электронной почты, потоковое видео UltraHD 4K и игра в онлайн-видеоигру требуют определенных скоростей для плавного и непрерывного выполнения.
+                    <span data-tag="article_about_methods_good_speed_description"></span>
                     <table class="table table-borderless text-center rounded-sm shadow-l" style="overflow: hidden;">
                     <thead>
                         <tr class="bg-blue-dark">
-                            <th scope="col" class="color-theme">Скорость</th>
-                            <th scope="col" class="color-theme">Оптимальные активности</th>
+                            <th scope="col" class="color-theme" data-tag="article_about_methods_good_speed_table_column_speed"> </th>
+                            <th scope="col" class="color-theme" data-tag="article_about_methods_good_speed_table_column_optimal_activity"> </th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <th scope="row" class="color-theme">0–5 Мбит/c</th>
-                            <td class="text-start color-theme">— Просмотр электронной почты. <br><i>например: Gmail</i>
-                                <br>— Потоковая передача музыки. <br><i>например: Spotify</i>
-                                <br>— Интернет серфинг. <br><i>например: поиск в Google</i>
+                            <th scope="row" class="color-theme">0–5 <span data-tag="article_about_methods_good_speed_table_mbis_per_s"></span></th>
+                            <td class="text-start color-theme">— <span data-tag="article_about_methods_good_speed_table_row_email_serfing"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> Gmail</i>
+                                <br>— <span data-tag="article_about_methods_good_speed_table_row_music_streaming"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> Spotify</i>
+                                <br>— <span data-tag="article_about_methods_good_speed_table_row_internet_serfing"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> поиск в Google</i>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row" class="color-theme">5-15 Мбит/c</th>
-                            <td class="text-start color-theme">— Потоковая передача видео HD (720p). <br><i>например: YouTube</i>
-                                <br>— Видеозвонки со Skype или FaceTime <i>без трансляции видео</i>.
-                                <br>— Онлайн-игры с другими пользователями. <br><i>например: Minecraft</i>
+                            <th scope="row" class="color-theme">5-15 <span data-tag="article_about_methods_good_speed_table_mbis_per_s"></span></th>
+                            <td class="text-start color-theme">— <span data-tag="article_about_methods_good_speed_table_row_video_hd_streaming"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> YouTube</i>
+                                <br>— <span data-tag="article_about_methods_good_speed_table_video_calls_without_video_share"></span>.
+                                <br>— <span data-tag="article_about_methods_good_speed_table_online_games"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> Minecraft</i>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row" class="color-theme">15-25 Мбит/c</th>
-                            <td class="text-start color-theme">— Потоковая передача видео FullHD (1080p).
-                                <br>— Видеозвонки со Skype или FaceTime <i>с трансляцией видео</i>.
+                            <th scope="row" class="color-theme">15-25 <span data-tag="article_about_methods_good_speed_table_mbis_per_s"></span></th>
+                            <td class="text-start color-theme">— <span data-tag="article_about_methods_good_speed_table_row_video_fullhd_streaming"></span>.
+                                <br>— <span data-tag="article_about_methods_good_speed_table_video_calls_wit_video_share"></span>.
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row" class="color-theme">25-45 Мбит/c</th>
-                            <td class="text-start color-theme">— Быстрая загрузка больших файлов.
-                                <br>— Потоковая передача видео UltraHD (4К).
-                                <br>— Видео-конференции. <br><i>например: Zoom</i>
-                                <br>— Стриминг <br><i>например: Twitch</i>
+                            <th scope="row" class="color-theme">25-45 <span data-tag="article_about_methods_good_speed_table_mbis_per_s"></span></th>
+                            <td class="text-start color-theme">— <span data-tag="article_about_methods_good_speed_table_fast_files_download"></span>.
+                                <br>— <span data-tag="article_about_methods_good_speed_table_row_video_ultrahd_streaming"></span>.
+                                <br>— <span data-tag="article_about_methods_good_speed_table_video_conferences"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> Zoom</i>
+                                <br>— <span data-tag="article_about_methods_good_speed_table_live_stream"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> Twitch</i>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row" class="color-theme">50-100 Мбит/c</th>
-                            <td class="text-start color-theme">— Быстрая загрузка больших файлов.
-                                <br>— Потоковая передача видео UltraHD (8К).
-                                <br>— Онлайн-игры с другими пользователями. <br><i>например: Minecraft</i>
+                            <th scope="row" class="color-theme">50-100  <span data-tag="article_about_methods_good_speed_table_mbis_per_s"></span></th>
+                            <td class="text-start color-theme">— <span data-tag="article_about_methods_good_speed_table_fast_large_files_download"></span>.
+                                <br>— <span data-tag="article_about_methods_good_speed_table_row_video_ultrahd_8k_streaming"></span>.
+                                <br>— <span data-tag="article_about_methods_good_speed_table_active_online_games"></span>. <br><i><span data-tag="article_about_methods_good_speed_table_for_example"></span> Valorant</i>
                             </td>
                         </tr>
                         <tr>
-                            <th scope="row" class="color-theme">100-1000+ Мбит/c</th>
-                            <td class="text-start color-theme">— Все что угодно! Лучшее решение для точек доступа, к которым планируется подключать более 4 активных устройств.
+                            <th scope="row" class="color-theme">100-1000+  <span data-tag="article_about_methods_good_speed_table_mbis_per_s"></span></th>
+                            <td class="text-start color-theme">— <span data-tag="article_about_methods_good_speed_table_anything_you_want"></span>.
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </p>
-                <p class="line-height-sm">
-                    Скорость более 100Мбит/с позволяет выполнять затратные по скорости активности на разных устройствах одновременно, а также скачивать любые файлы с немыслимой скоростью. Впрочем, обычному пользователю такая скорость ни к чему.
-                    <br>Для мобильной сети хорошей будет скорость в районе 15-25 Мбит/c. Этой скорости достаточно, чтобы выполнять множество мобильных задач без ожиданий.
-                    <br>Для высокоскоростного подключения (так же, домашний интернет, проводное подключение, Wi-Fi) оптимальной будет скорость в районе 50-100 Мбит/c. Такой скорости достаточно для любых задач, которые можно вообразить.
+                <p class="line-height-sm" data-tag="article_about_methods_good_speed_conclusion">
+                    
                 </p>
-                <h4>Как работает DeqSpeed?</h4>
-                <p class="line-height-sm">
-                    Отличный вопрос! DeqSpeed — это инновационный сервис, измеряющий скорость подключения с помощью набора определенных методов.<br>Для тестирования скорости скачивания:
-                    <br>— Мы устанавливаем соединение с удаленным сервером.
-                    <br>— Небольшие двоичные файлы загружаются с веб-сервера на клиент для примерной оценки скорости соединения.
-                    <br>— На основе этого результата выбирается один из нескольких размеров файлов для использования в реальном тесте загрузки.
-                    <br>* Во время проведения теста может быть инициализировано до 8 одновременных HTTP-потоков.
-                    <br>— Образцы пропускной способности для трассировки принимаются с удаленного сервера до 30 раз в секунду.
-                    <br>— ../еще другие технические штучки/..
-                    <br>Для тестирования скорости загрузки:
-                    <br>— Мы устанавливаем соединение с удаленным сервером.
-                    <br>— Генерируется случайный набор данных и отправляется на удаленный сервер для определения примерной скорости загрузки.
-                    <br>— На основе этого результата для загрузки выбирается набор случайно сгенерированных данных соответствующего размера.
-                    <br>* Во время проведения теста может быть инициализировано до 8 параллельных HTTP-потоков.
-                    <br><br><i>Может оказаться важным: </i> для проведения теста на удаленный сервер отправляются некие наборы данных. Процесс тестирования может потратить 30+Мб трафика, в зависимости от скорости Вашего подключения. Пожалуйста, учитывайте это, если Вы используете ограниченное подключение.
+                <h4 data-tag="article_about_methods_how_deqspeed_works_title"> </h4>
+                <p class="line-height-sm" data-tag="article_about_methods_how_deqspeed_works_description">
+                    
                 </p>
         </div>
     </div>
