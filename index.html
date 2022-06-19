@@ -49,47 +49,49 @@
             translate.process();
         }
     </script>
+    <script>
+        const params = new Proxy(new URLSearchParams(window.location.search), {
+          get: (searchParams, prop) => searchParams.get(prop),
+        });
+        
+        console.log("Detected the following source: " + params.source);
+        switch (params.source) {
+          case "yandexgames":
+            localStorage.setItem('data__instanceSource', "yandexgames");
+            function initSDK(){
+              console.log("Yandex.Games SDK has been mounted into the page, now initializing...");
+              YaGames
+              .init()
+              .then(ysdk => {
+                  console.log('Yandex SDK initialized');
+                  window.ysdk = ysdk;
+              });
+            }
+            console.log("Yandex.Games SDK will be requested right now...");
+            (function(d) {
+                var t = d.getElementsByTagName('script')[0];
+                var s = d.createElement('script');
+                s.src = 'https://yandex.ru/games/sdk/v2';
+                s.async = true;
+                t.parentNode.insertBefore(s, t);
+                s.onload = initSDK;
+            })(document);
+            break;
+          default:
+            localStorage.setItem('data__instanceSource', "direct");
+        }
+        
+      </script>
 
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D06VGCYVH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-0D06VGCYVH');
-  
-  const params = new Proxy(new URLSearchParams(window.location.search), {
-    get: (searchParams, prop) => searchParams.get(prop),
-  });
-  
-  console.log("Detected the following source: " + params.source);
-  switch (params.source) {
-    case "yandexgames":
-      localStorage.setItem('data__instanceSource', "yandexgames");
-      function initSDK(){
-        console.log("Yandex.Games SDK has been mounted into the page, now initializing...");
-        YaGames
-        .init()
-        .then(ysdk => {
-            console.log('Yandex SDK initialized');
-            window.ysdk = ysdk;
-        });
-      }
-      console.log("Yandex.Games SDK will be requested right now...");
-      (function(d) {
-          var t = d.getElementsByTagName('script')[0];
-          var s = d.createElement('script');
-          s.src = 'https://yandex.ru/games/sdk/v2';
-          s.async = true;
-          t.parentNode.insertBefore(s, t);
-          s.onload = initSDK;
-      })(document);
-      break;
-    default:
-      localStorage.setItem('data__instanceSource', "direct");
-  }
-  
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0D06VGCYVH');
 </script>
 </head>
     
