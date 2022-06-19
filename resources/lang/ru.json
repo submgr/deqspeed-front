@@ -1,0 +1,59 @@
+{   
+    "header_title": "Добро пожаловать",
+
+    "welcome_slide1_subtitle": "Добро пожаловать",
+    "welcome_slide1_title": "DeqSpeed",
+    "welcome_slide1_description": "Абсолютно независимый инструмент<br> для замера скорости Интернет-соединения.",
+
+    "welcome_slide2_subtitle": "Добро пожаловать",
+    "welcome_slide2_title": "DeqSpeed",
+    "welcome_slide2_description": "Множество серверов по всему миру, <br> а также инновационные подходы к тестированию скорости сети.",
+
+    "privacy_policy": "Политика конфиденциальности",
+    "button_lets_start": "Давайте уже начнем!",
+
+    "start_thetest": "Начать тест",
+    "title_firstline": "Привет, это —",
+    "title_secondline": "DeqSpeed",
+    "app_optimization": "Оптимизация приложения",
+    "looking_for_theservers": "Подбор сервера...",
+    "maincard_subtitle": "Это не займет много времени.",
+    "maincard_title": "Тестирование скорости сети",
+    "maincard_description": "Для тестирования скорости сети мы установим подключение между Вашим устройством и удаленным сервером, чтобы провести набор необходимых тестов.",
+    "maincard_description_learnmore": "Узнать больше",
+    "maincard_label_serverselection": "Выбор сервера",
+
+    "ping": "Ping",
+    "jitter": "Jitter",
+    "upload_speed": "Загрузка",
+    "download_speed": "Скачивание",
+
+    "ms": "мс",
+    "mbps": "Mbps",
+
+    "better_than": "лучше",
+    "users": "пользователей",
+
+    "about_connection_title": "Сведения о подключении",
+    "about_connection_networktype": "Тип соединения",
+    "about_connection_ipaddr": "IP адрес",
+    "about_connection_provider": "Провайдер сети",
+    "about_connection_addr_irl": "Адрес по сети",
+
+    "share_withstory": "Поделиться в истории",
+    "share_withpost": "Поделиться на стене",
+    "retake_test": "Еще раз",
+
+    "toast_loadingnotificator_mainline": "Определяем",
+
+    "perfoming_ping": "Ping",
+    "perfoming_jitter": "Jitter",
+    "perfoming_downloadspeed": "входящую скорость",
+    "perfoming_uploadspeed": "исходящую скорость",
+    "perfoming_latest_tests": "последние показатели",
+
+    "vk_posttext_firstpart": "Моя скорость Интернета лучше, чем у ",
+    "vk_posttext_secondpart": "пользователей!",
+
+    "yagames_share_aboutapp": "Удобный инструмент замера скорости сети прямо в Yandex WebApps, — попробуйте!"
+}

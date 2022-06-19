@@ -1,253 +1,327 @@
 <!DOCTYPE HTML>
 <html lang="en">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
-<title>deqspeed://run</title>
-<link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="styles/style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">    
-<link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
-<link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0D06VGCYVH"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-0D06VGCYVH');
-  
-  switch (localStorage.getItem('data__instanceSource')) {
-    case "yandexgames":
-      function initSDK(){
-        console.log("Yandex.Games SDK has been mounted into the page, now initializing...");
-        YaGames
-        .init()
-        .then(ysdk => {
-            console.log('Yandex SDK initialized');
-            window.ysdk = ysdk;
-        });
-      }
-      console.log("Yandex.Games SDK will be requested right now...");
-      (function(d) {
-          var t = d.getElementsByTagName('script')[0];
-          var s = d.createElement('script');
-          s.src = 'https://yandex.ru/games/sdk/v2';
-          s.async = true;
-          t.parentNode.insertBefore(s, t);
-          s.onload = initSDK;
-      })(document);
-      break;
-    default:
-      console.log("Nothing to embed as an additional integration.");
-  }
-</script>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, viewport-fit=cover" />
+    <title>deqspeed://run</title>
+    <link rel="stylesheet" type="text/css" href="styles/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">
+    <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
+    <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+    <!-- Localization tool -->
+    <script type="text/javascript" src="scripts/translate.js"></script>
+    <script>
+        function runTranslation_textUpdate() {
+            let user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
+            var available_languages = ['ru', 'en'];
+
+            let app_lang = "en";
+
+            if (available_languages.includes(user_lang) == true) {
+                app_lang = user_lang;
+            }
+
+            if(user_lang == "be" || user_lang == "kk" || user_lang == "uk" || user_lang == "uz"){
+                app_lang = "ru";
+            }
+
+            if(localStorage.getItem("data__instanceSource") == "yandexgames"){
+
+                var yasdk_lang = yasdk.environment.i18n.lang;
+                if(available_languages.includes(yasdk_lang) == true){
+                    app_lang = yasdk_lang;
+                }
+
+                if(yasdk_lang == "be" || yasdk_lang == "kk" || yasdk_lang == "uk" || yasdk_lang == "uz"){
+                    app_lang = "ru";
+                }
+            }
+
+            var translate = new Translate();
+            var currentLng = app_lang;
+            var attributeName = 'data-tag';
+            translate.init(attributeName, currentLng);
+            translate.process();
+        }
+    </script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D06VGCYVH"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+
+        gtag('config', 'G-0D06VGCYVH');
+
+        switch (localStorage.getItem('data__instanceSource')) {
+            case "yandexgames":
+                function initSDK() {
+                    console.log("Yandex.Games SDK has been mounted into the page, now initializing...");
+                    YaGames
+                        .init()
+                        .then(ysdk => {
+                            console.log('Yandex SDK initialized');
+                            window.ysdk = ysdk;
+                        });
+                }
+                console.log("Yandex.Games SDK will be requested right now...");
+                (function (d) {
+                    var t = d.getElementsByTagName('script')[0];
+                    var s = d.createElement('script');
+                    s.src = 'https://yandex.ru/games/sdk/v2';
+                    s.async = true;
+                    t.parentNode.insertBefore(s, t);
+                    s.onload = initSDK;
+                })(document);
+                break;
+            default:
+                console.log("Nothing to embed as an additional integration.");
+        }
+    </script>
 </head>
-    
-<body class="theme-dark">
-    
-<div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
-    
-<div id="page">
-    
-    <div class="header header-fixed header-logo-center header-auto-show">
-        <p class="header-title">Провести тест</p>
-        <a href="#" id="tryto_getback" class="header-icon header-icon-1"><i class="fas fa-chevron-left"></i></a>
+
+<body class="theme-dark" onload="runTranslation_textUpdate();">
+
+    <div id="preloader">
+        <div class="spinner-border color-highlight" role="status"></div>
     </div>
 
-    <!---<div id="footer-bar" class="footer-bar-6">
+    <div id="page">
+
+        <div class="header header-fixed header-logo-center header-auto-show">
+            <p class="header-title" data-tag="start_thetest">$start_thetest</p>
+            <a href="#" id="tryto_getback" class="header-icon header-icon-1"><i class="fas fa-chevron-left"></i></a>
+        </div>
+
+        <!---<div id="footer-bar" class="footer-bar-6">
         <a href="index-components.html"><i class="fa fa-layer-group"></i><span>Features</span></a>
         <a href="index-pages.html" class="active-nav"><i class="fa fa-file"></i><span>Pages</span></a>
         <a href="index.html" class="circle-nav"><i class="fa fa-home"></i><span>Welcome</span></a>
         <a href="index-projects.html"><i class="fa fa-camera"></i><span>Projects</span></a>
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Menu</span></a>
     </div>--->
-    
-    <div class="page-title page-title-fixed">
-        <div>
-            <h1 class="font-16 color-highlight mb-n3">Привет, это —</h1>
-            <h1>DeqSpeed</h1>
-        </div>
-        <a href="#" id="app__shareThisMiniApp" class="page-title-icon shadow-xl bg-theme mt-2 color-theme"><i class="fa fa-share-alt"></i></a>
-        <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme show-on-theme-light" data-toggle-theme><i class="fa fa-moon"></i></a>
-        <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme show-on-theme-dark" data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a>
-        <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme fakeHeader_element" style="visibility: hidden"><i class="fa fa-share-alt"></i></a>
-        <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme fakeHeader_element" style="visibility: hidden"><i class="fa fa-share-alt"></i></a>
-    </div>
-    <div class="page-title-clear"></div>
-        
-    <div class="speedtest-module-pre page-content speedtest-module speedtest-app__runController speedtest-backfix_backdetect mt-3">
-        <div class="card card-style" id="loading" class="visible">
-            <div class="content">
-                <h5 class="font-14 opacity-50">Оптимизация приложения</h5>
-                <div class="divider mb-3"></div>
 
-                <div class="list-group list-custom-small list-menu ms-0 me-2">
-                    <a href="#" class="menu-active">
-                        <p id="message"><span class="loadCircle"></span>Подбор сервера...</p>
-                    </a>        
-                </div>
-
+        <div class="page-title page-title-fixed">
+            <div>
+                <h1 class="font-16 color-highlight mb-n3" data-tag="title_firstline"> ... </h1>
+                <h1 data-tag="title_secondline"> ... </h1>
             </div>
+            <a href="#" id="app__shareThisMiniApp" class="page-title-icon shadow-xl bg-theme mt-2 color-theme"><i
+                    class="fa fa-share-alt"></i></a>
+            <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme show-on-theme-light"
+                data-toggle-theme><i class="fa fa-moon"></i></a>
+            <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme show-on-theme-dark"
+                data-toggle-theme><i class="fa fa-lightbulb color-yellow-dark"></i></a>
+            <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme fakeHeader_element"
+                style="visibility: hidden"><i class="fa fa-share-alt"></i></a>
+            <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme fakeHeader_element"
+                style="visibility: hidden"><i class="fa fa-share-alt"></i></a>
         </div>
-        <div id="testWrapper" class="hidden">
-            <div class="card card-style pb-2" id="startTestCard">
-                <div class="content mb-2">
-                    <p class="mb-n1 color-highlight font-600">Это не займет много времени.</p>
-                    <h2>Тестирование скорости сети</h1>
-                    <p class="font-12 mt-n1 mb-0 pb-2 line-height-sm">
-                        Для тестирования скорости сети мы установим подключение между Вашим устройством и удаленным сервером, чтобы провести набор необходимых тестов. <a class="opacity-90" href="#" id="app_moreAboutMethods">Узнать больше</a>.
-                    </p>
-                    <div class="input-style has-borders no-icon mb-4 mt-2" id="serverArea">
-                        <label for="form5" class="color-highlight">Server selection</label>
-                        <select id="server" onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
-                        <span><i class="fa fa-chevron-down"></i></span>
-                        <i class="fa fa-check disabled valid color-green-dark"></i>
-                        <i class="fa fa-check disabled invalid color-red-dark"></i>
-                        <em></em>
+        <div class="page-title-clear"></div>
+
+        <div
+            class="speedtest-module-pre page-content speedtest-module speedtest-app__runController speedtest-backfix_backdetect mt-3">
+            <div class="card card-style" id="loading" class="visible">
+                <div class="content">
+                    <h5 class="font-14 opacity-50" data-tag="app_optimization"> </h5>
+                    <div class="divider mb-3"></div>
+
+                    <div class="list-group list-custom-small list-menu ms-0 me-2">
+                        <a href="#" class="menu-active">
+                            <p id="message"><span class="loadCircle"></span><span data-tag="looking_for_theservers"> </span></p>
+                        </a>
                     </div>
-                    <a href="#" id="app__button_changeState" class="btn btn-full btn-l rounded-s font-600 gradient-highlight">Начать тест</a>
+
                 </div>
             </div>
-            <div id="test">
-                <div class="content mt-0 mb-0">
-                    <div class="row mb-0">
-                        <div class="col-6">
-                            <div class="card mx-0 card-style" data-card-height="230">
-                                <div class="content">
-                                    <h5 class="font-14 opacity-50">Ping <a href="#" class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a></h5>
-                                    <div class="divider mb-1"></div>
-                                </div>
-                                <div class="card-center text-center pb-5">
-                                    <span class="icon icon-xxl rounded-m gradient-highlight"><i class="fa bi-broadcast font-30"></i></span>
-                                </div>
-                                <div class="card-bottom text-center">
-                                    <div class="content pb-1">
-                                        <h2 class="mb-n1"><span id="pingText">--</span><span class="opacity-30">ms</span></h2>
-                                        <h6 class="opacity-30">лучше <span id="betterThan_activeMetric_Ping">—</span>% пользователей</h6>
-                                    </div>
-                                </div>
+            <div id="testWrapper" class="hidden">
+                <div class="card card-style pb-2" id="startTestCard">
+                    <div class="content mb-2">
+                        <p class="mb-n1 color-highlight font-600" data-tag="maincard_subtitle"> </p>
+                        <h2 data-tag="maincard_title"> </h1>
+                            <p class="font-12 mt-n1 mb-0 pb-2 line-height-sm">
+                                <span data-tag="maincard_description"> </span> <a class="opacity-90"
+                                    href="#" id="app_moreAboutMethods" data-tag="maincard_description_learnmore"> </a>.
+                            </p>
+                            <div class="input-style has-borders no-icon mb-4 mt-2" id="serverArea">
+                                <label for="form5" class="color-highlight" data-tag="maincard_label_serverselection"></label>
+                                <select id="server"
+                                    onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
+                                <span><i class="fa fa-chevron-down"></i></span>
+                                <i class="fa fa-check disabled valid color-green-dark"></i>
+                                <i class="fa fa-check disabled invalid color-red-dark"></i>
+                                <em></em>
                             </div>
-                        </div> 
-                        <div class="col-6">
-                            <div class="card mx-0 card-style" data-card-height="230">
-                                <div class="content mb-0 pb-0">
-                                    <h5 class="font-14 opacity-50">Jitter <a href="#" class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a></h5>
-                                    <div class="divider mb-2"></div>
-                                </div>
-                                <div class="card-center text-center pb-5">
-                                    <span class="icon icon-xxl rounded-m gradient-highlight"><i class="fa bi-alt font-30"></i></span>
-                                </div>
-                                <div class="card-bottom text-center">
-                                    <div class="content pb-1">
-                                        <h2 class="mb-n1"><span id="jitText">--</span><span class="opacity-30">ms</span></h2>
-                                        <h6 class="opacity-30">лучше <span id="betterThan_activeMetric_Jitter">—</span>% пользователей</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card mx-0 card-style" data-card-height="230">
-                                <div class="content mb-0 pb-0">
-                                    <h5 class="font-14 opacity-50">Download <a href="#" class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a></h5>
-                                    <div class="divider mb-2"></div>
-                                </div>
-                                <canvas id="dlMeter" class="meter mb-2"></canvas>
-                                <div class="card-bottom text-center">
-                                    <div class="content pb-1">
-                                        <h2 class="mb-n1"><span id="dlText">--</span><span class="opacity-30">Mbps</span></h2>
-                                        <h6 class="opacity-30">лучше <span id="betterThan_activeMetric_dl">—</span>% пользователей</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="card mx-0 card-style" data-card-height="230">
-                                <div class="content mb-0 pb-0">
-                                    <h5 class="font-14 opacity-50">Upload <a href="#" class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a></h5>
-                                    <div class="divider mb-2"></div>
-                                </div>
-                                <canvas id="ulMeter" class="meter mb-2"></canvas>
-                                <div class="card-bottom text-center">
-                                    <div class="content pb-1">
-                                        <h2 class="mb-n1"><span id="ulText">--</span><span class="opacity-30">Mbps</span></h2>
-                                        <h6 class="opacity-30">лучше <span id="betterThan_activeMetric_ul">—</span>% пользователей</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12">
-                            <div class="card mx-0 card-style" class="visible">
-                                <div class="content">
-                                    <h5 class="font-14 opacity-40">Сведения о подключении</h5>
-                                    <div class="divider mb-2"></div>
-
-                                    <div class="row mb-0 mt-0">                
-                                        <h5 class="col-5 text-start font-14">Тип соединения</h5>
-                                        <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_networkType"><span class="loadCircle"></span></h5>
-                                        
-                                        <h5 class="col-5 text-start font-14">IP адрес</h5>
-                                        <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_ip"><span class="loadCircle"></span></h5>
-
-                                        <h5 class="col-5 text-start font-14">Провайдер сети</h5>
-                                        <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_provider"><span class="loadCircle"></span></h5>
-                                        
-                                        <h5 class="col-5 text-start font-14">Адрес по сети</h5>
-                                        <h5 class="col-7 text-end font-14 opacity-60 font-400 pb-1"><span id="data_networkAddress"><span class="loadCircle"></span></h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="test_shareBlock">
-                            <div>
-                                <div class="col-12">
-                                    <a href="#" id="app__button_shareOnStory"class="btn btn-full btn-m rounded-xs font-600 bg-green-dark">Поделиться в истории&nbsp;&nbsp;&nbsp;<i class="bi bi-collection-play"></i></a>
-                                </div>
-                                <div class="col-12 pt-2">
-                                    <a href="#" id="app__button_shareOnPage" class="btn btn-full btn-m rounded-xs font-600 bg-blue-dark">Поделиться на стене&nbsp;&nbsp;&nbsp;<i class="bi bi-calendar3-week"></i></a>
-                                </div> 
-                                <div class="col-12 pt-2">
-                                    <a href="#" id="app__button_reloadTest" class="btn btn-full btn-m rounded-xs font-600 bg-dark-dark">Еще раз&nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-clockwise"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                            <a href="#" id="app__button_changeState"
+                                class="btn btn-full btn-l rounded-s font-600 gradient-highlight" data-tag="start_thetest">Начать тест</a>
                     </div>
                 </div>
-                <div id="ipArea">
-                    <span id="ip"></span>
-                </div>
-                <div id="shareArea" style="display: none">
-                    <h3>Share results</h3>
-                    <p>Test ID: <span id="testId"></span></p>
-                    <input type="text" value="" id="resultsURL" readonly="readonly" onclick="this.select();this.focus();this.select();document.execCommand('copy');alert('Link copied')"/>
-                    <img style="width: 0px; height: 0px;" src="" id="resultsImg" />
+                <div id="test">
+                    <div class="content mt-0 mb-0">
+                        <div class="row mb-0">
+                            <div class="col-6">
+                                <div class="card mx-0 card-style" data-card-height="230">
+                                    <div class="content">
+                                        <h5 class="font-14 opacity-50"><span data-tag="ping"></span> <a href="#"
+                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                        </h5>
+                                        <div class="divider mb-1"></div>
+                                    </div>
+                                    <div class="card-center text-center pb-5">
+                                        <span class="icon icon-xxl rounded-m gradient-highlight"><i
+                                                class="fa bi-broadcast font-30"></i></span>
+                                    </div>
+                                    <div class="card-bottom text-center">
+                                        <div class="content pb-1">
+                                            <h2 class="mb-n1"><span id="pingText">--</span><span
+                                                    class="opacity-30" data-tag="ms"> </span></h2>
+                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span
+                                                    id="betterThan_activeMetric_Ping">—</span>% <span data-tag="users"></span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mx-0 card-style" data-card-height="230">
+                                    <div class="content mb-0 pb-0">
+                                        <h5 class="font-14 opacity-50"><span data-tag="jitter"></span> <a href="#"
+                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                        </h5>
+                                        <div class="divider mb-2"></div>
+                                    </div>
+                                    <div class="card-center text-center pb-5">
+                                        <span class="icon icon-xxl rounded-m gradient-highlight"><i
+                                                class="fa bi-alt font-30"></i></span>
+                                    </div>
+                                    <div class="card-bottom text-center">
+                                        <div class="content pb-1">
+                                            <h2 class="mb-n1"><span id="jitText">--</span><span
+                                                    class="opacity-30" data-tag="ms"> </span></h2>
+                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span
+                                                    id="betterThan_activeMetric_Jitter">—</span>% <span data-tag="users"></span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mx-0 card-style" data-card-height="230">
+                                    <div class="content mb-0 pb-0">
+                                        <h5 class="font-14 opacity-50"><span data-tag="download_speed"></span> <a href="#"
+                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                        </h5>
+                                        <div class="divider mb-2"></div>
+                                    </div>
+                                    <canvas id="dlMeter" class="meter mb-2"></canvas>
+                                    <div class="card-bottom text-center">
+                                        <div class="content pb-1">
+                                            <h2 class="mb-n1"><span id="dlText">--</span><span
+                                                    class="opacity-30" data-tag="mbps"> </span></h2>
+                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_dl">—</span>%
+                                                <span data-tag="users"></span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card mx-0 card-style" data-card-height="230">
+                                    <div class="content mb-0 pb-0">
+                                        <h5 class="font-14 opacity-50"><span data-tag="upload_speed"></span> <a href="#"
+                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                        </h5>
+                                        <div class="divider mb-2"></div>
+                                    </div>
+                                    <canvas id="ulMeter" class="meter mb-2"></canvas>
+                                    <div class="card-bottom text-center">
+                                        <div class="content pb-1">
+                                            <h2 class="mb-n1"><span id="ulText">--</span><span
+                                                    class="opacity-30" data-tag="mbps"> </span></h2>
+                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_ul">—</span>%
+                                                <span data-tag="users"></span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="card mx-0 card-style" class="visible">
+                                    <div class="content">
+                                        <h5 class="font-14 opacity-40"><span data-tag="about_connection_title"></span></h5>
+                                        <div class="divider mb-2"></div>
+    
+                                        <div class="row mb-0 mt-0">                
+                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_networktype"></span></h5>
+                                            <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_networkType"><span class="loadCircle"></span></span></h5>
+                                            
+                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_ipaddr"></span></h5>
+                                            <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_ip"><span class="loadCircle"></span></span></h5>
+    
+                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_provider"></span></h5>
+                                            <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_provider"><span class="loadCircle"></span></span></h5>
+                                            
+                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_addr_irl"></span></h5>
+                                            <h5 class="col-7 text-end font-14 opacity-60 font-400 pb-1"><span id="data_networkAddress"><span class="loadCircle"></span></span></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="test_shareBlock">
+                                <div>
+                                    <div class="col-12">
+                                        <a href="#" id="app__button_shareOnStory"
+                                            class="btn btn-full btn-m rounded-xs font-600 bg-green-dark"><span data-tag="share_withstory"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-collection-play"></i></a>
+                                    </div>
+                                    <div class="col-12 pt-2">
+                                        <a href="#" id="app__button_shareOnPage"
+                                            class="btn btn-full btn-m rounded-xs font-600 bg-blue-dark"><span data-tag="share_withpost"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-calendar3-week"></i></a>
+                                    </div>
+                                    <div class="col-12 pt-2">
+                                        <a href="#" id="app__button_reloadTest"
+                                            class="btn btn-full btn-m rounded-xs font-600 bg-dark-dark"><span data-tag="retake_test"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-clockwise"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="ipArea">
+                        <span id="ip"></span>
+                    </div>
+                    <div id="shareArea" style="display: none">
+                        <h3>Share results</h3>
+                        <p>Test ID: <span id="testId"></span></p>
+                        <input type="text" value="" id="resultsURL" readonly="readonly"
+                            onclick="this.select();this.focus();this.select();document.execCommand('copy');alert('Link copied')" />
+                        <img style="width: 0px; height: 0px;" src="" id="resultsImg" />
+                    </div>
                 </div>
             </div>
         </div>
+        <!-- Page content ends here-->
+
+        <div id="test_loadingNotification" class="snackbar-toast color-white bg-highlight color-white"
+            style="margin-bottom: -11%;" data-bs-delay="3000" data-bs-autohide="false"><i
+                class="fa fa-sync fa-spin me-3"></i><span data-tag="toast_loadingnotificator_mainline"></span> <span id="test_loadingNotification_text" data-tag="perfoming_ping">пинг</span>...
+        </div>
+
+
     </div>
-    <!-- Page content ends here-->
 
-    <div id="test_loadingNotification" class="snackbar-toast color-white bg-highlight color-white" style="margin-bottom: -11%;" data-bs-delay="3000" data-bs-autohide="false"><i class="fa fa-sync fa-spin me-3"></i>Определяем <span id="test_loadingNotification_text">пинг</span>...</div>
-    
-    <!-- Main Menu--> 
-    <div id="menu-main" class="menu menu-box-left rounded-0" data-menu-width="280"></div>
-    
-    <!-- Colors Menu-->
-    <div id="menu-colors" class="menu menu-box-bottom rounded-m" data-menu-load="menu-colors.html" data-menu-height="480"></div> 
-     
-    
-</div>
+    <script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="scripts/custom.js"></script>
 
-<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
-<script type="text/javascript" src="scripts/custom.js"></script>
-
-<script>
-    console.log("Hello there! Im here. - from [app/speedtestCALL] code part.");
-    initServers();
-</script>
+    <script>
+        console.log("Hello there! Im here. - from [app/speedtestCALL] code part.");
+        initServers();
+    </script>
 
 </body>

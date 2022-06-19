@@ -19,6 +19,14 @@ var SPEEDTEST_SERVERS=[
 		ulURL:"deqspeed.pages.dev/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"deqspeed.pages.dev/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
 		getIpURL:"https://deqspeed.herokuapp.com/utils/getip"  //path to getIP on this server (getIP.php or replacement)
+	},
+	{
+		name:"Локальный сервер — DEV", //user friendly name for the server
+		server:"http://", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		dlURL:"192.168.1.38:5500/deqspeed-front/bins/test-5mb.bin",  //path to download test on this server (garbage.php or replacement)
+		ulURL:"192.168.1.38:5500/deqspeed-front/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
+		pingURL:"192.168.1.38:5500/deqspeed-front/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
+		getIpURL:"https://deqspeed.herokuapp.com/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	}
 ];
 
@@ -212,7 +220,7 @@ function updateUI(forced){
             	}
 		document.getElementById("betterThan_activeMetric_Ping").textContent = better_than_ping;
 		status_passed += 1;
-		I("test_loadingNotification_text").textContent = "Jitter";
+		I("test_loadingNotification_text").textContent = get_translation("perfoming_jitter");;
 	}else if(status_passed == 2 && uiData.dlStatus > 0){
 		//jitter
 				better_than_jitter = Math.round(130 - uiData.jitterStatus*2);
@@ -223,7 +231,7 @@ function updateUI(forced){
             	}
         document.getElementById("betterThan_activeMetric_Jitter").textContent = better_than_jitter;
         status_passed += 1;
-        I("test_loadingNotification_text").textContent = "входящую скорость";
+        I("test_loadingNotification_text").textContent = get_translation("perfoming_downloadspeed");
 	}else if(status_passed == 3 && uiData.ulStatus > 0){
 		//download
             	better_than_dl = Math.round(100 - (102 - uiData.dlStatus));
@@ -234,7 +242,7 @@ function updateUI(forced){
             	}
         document.getElementById("betterThan_activeMetric_dl").textContent = better_than_dl;
         status_passed += 1;
-        I("test_loadingNotification_text").textContent = "исходящую скорость";
+        I("test_loadingNotification_text").textContent = get_translation("perfoming_uploadspeed");
 	}else if(status_passed == 4 && s.getState() == 4){
 		//upload
             	better_than_ul = Math.round(100 - (82 - uiData.ulStatus));
@@ -244,7 +252,7 @@ function updateUI(forced){
             		better_than_ul = 99;
             	}
         document.getElementById("betterThan_activeMetric_ul").textContent = better_than_ul;
-        I("test_loadingNotification_text").textContent = "последние показатели";
+        I("test_loadingNotification_text").textContent = get_translation("perfoming_latest_tests");
 	}
 
 	I("dlText").textContent=(status==1&&uiData.dlStatus==0)?"...":format(uiData.dlStatus);
@@ -286,7 +294,7 @@ app__button_shareOnStory.onclick = function() {
 app__button_shareOnPage.onclick = function() {
 	console.log("got click for: share OnPage");
 	averageBetterThan = (better_than_ping + better_than_jitter + better_than_dl + better_than_ul)/4;
-    window.parent.postMessage({type:"vk_post_share", message: "Моя скорость Интернета лучше, чем у " + averageBetterThan + "% пользователей! \n#" + uiData.client_org_cutted.replace(/\s/g, "") + "\n#deqspeed #speedtest #internet", url: "https://vk.com/app8045693"}, '*');
+    window.parent.postMessage({type:"vk_post_share", message: "" + get_translation("vk_posttext_firstpart") + averageBetterThan + "% " + get_translation("vk_posttext_secondpart") + " \n#" + uiData.client_org_cutted.replace(/\s/g, "") + "\n#deqspeed #speedtest #internet", url: "https://vk.com/app8045693"}, '*');
   };
 app__shareThisMiniApp.onclick = function() {
 	console.log("got click for: share this app");
@@ -295,7 +303,7 @@ app__shareThisMiniApp.onclick = function() {
 	}else{
 		const shareData = {
 		  title: 'DeqSpeed',
-		  text: 'Удобный инструмент замера скорости сети прямо в Yandex WebApps, — попробуйте!',
+		  text: get_translation("yagames_share_aboutapp"),
 		  url: 'https://yandex.com/games/app/188540'
 		}
 		

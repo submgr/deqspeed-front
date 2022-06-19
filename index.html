@@ -12,6 +12,44 @@
 <link rel="stylesheet" type="text/css" href="fonts/css/fontawesome-all.min.css">    
 <link rel="manifest" href="_manifest.json" data-pwa-version="set_in_manifest_and_pwa_js">
 <link rel="apple-touch-icon" sizes="180x180" href="app/icons/icon-192x192.png">
+
+<!-- Localization tool -->
+    <script type="text/javascript" src="scripts/translate.js"></script>
+    <script>
+        function runTranslation_textUpdate() {
+            let user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
+            var available_languages = ['ru', 'en'];
+
+            let app_lang = "en";
+
+            if (available_languages.includes(user_lang) == true) {
+                app_lang = user_lang;
+            }
+
+            if(user_lang == "be" || user_lang == "kk" || user_lang == "uk" || user_lang == "uz"){
+                app_lang = "ru";
+            }
+
+            if(localStorage.getItem("data__instanceSource") == "yandexgames"){
+
+                var yasdk_lang = yasdk.environment.i18n.lang;
+                if(available_languages.includes(yasdk_lang) == true){
+                    app_lang = yasdk_lang;
+                }
+
+                if(yasdk_lang == "be" || yasdk_lang == "kk" || yasdk_lang == "uk" || yasdk_lang == "uz"){
+                    app_lang = "ru";
+                }
+            }
+
+            var translate = new Translate();
+            var currentLng = app_lang;
+            var attributeName = 'data-tag';
+            translate.init(attributeName, currentLng);
+            translate.process();
+        }
+    </script>
+
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0D06VGCYVH"></script>
 <script>
@@ -62,7 +100,7 @@
 <div id="page">
     
     <div class="header header-fixed header-logo-center header-auto-show">
-        <a href="index.html" class="header-title">Добро пожаловать</a>
+        <a href="index.html" class="header-title" data-tag="header_title"> </a>
         <a href="#" data-back-button class="header-icon header-icon-1"><i class="fas fa-chevron-left"></i></a>
         <a href="#" data-menu="menu-main" class="header-icon header-icon-4"><i class="fas fa-bars"></i></a>
         <a href="#" data-toggle-theme class="header-icon header-icon-3 show-on-theme-dark"><i class="fas fa-sun"></i></a>
@@ -80,9 +118,9 @@
                     <div class="splide__slide">
                         <div class="card rounded-0" data-card-height="cover-full">
                             <div class="card-top text-center mt-5">
-                                <h1 class="font-18 font-700 color-highlight mb-n1">Привет, это —</h1>
-                                <h1 class="font-40 font-800 pb-4">DeqSpeed</h1>
-                                <h4 class="opacity-60 mb-4 pb-4">Абсолютно независимый инструмент<br> для замера скорости Интернет-соединения.</h4>
+                                <h1 class="font-18 font-700 color-highlight mb-n1" data-tag="welcome_slide1_subtitle"> </h1>
+                                <h1 class="font-40 font-800 pb-4" data-tag="welcome_slide1_title"> </h1>
+                                <h4 class="opacity-60 mb-4 pb-4" data-tag="welcome_slide1_description"> </h4>
                                 <img align="middle" src="graphics/images/speedtest_welcome_logo-canva-80x.png" class="mx-auto" width="70%">
                             </div>
                         </div>
@@ -90,9 +128,9 @@
                     <div class="splide__slide">
                         <div class="card rounded-0" data-card-height="cover-full">
                             <div class="card-top text-center mt-5">
-                                <h1 class="font-18 font-700 color-highlight mb-n1">Привет, это —</h1>
-                                <h1 class="font-40 font-800 pb-4">DeqSpeed</h1>
-                                <h4 class="opacity-60 mb-4 pb-4">Множество серверов по всему миру, <br> а также инновационные подходы к тестированию скорости сети.</h4>
+                                <h1 class="font-18 font-700 color-highlight mb-n1" data-tag="welcome_slide2_subtitle"> </h1>
+                                <h1 class="font-40 font-800 pb-4" data-tag="welcome_slide2_title"> </h1>
+                                <h4 class="opacity-60 mb-4 pb-4" data-tag="welcome_slide2_description"> </h4>
                                 <img align="middle" src="graphics/images/speedtest_worldwide-canva.png" class="mx-auto" width="70%">
                             </div>
                         </div>
@@ -103,8 +141,8 @@
             
         
         <div class="slider-bottom-button bg-theme">
-            <p data-menu="modal-iframe-privacy-policy" class="text-center mb-2 opacity-90" style="cursor: pointer;">Политика конфиденциальности</p>
-            <a href="#" id="button_firstUse_letsgo" class="btn btn-m btn-full ms-5 me-5 rounded-sm border-highlight color-highlight font-600 font-13 mt-3 mb-3">Давайте уже начнем!</a>
+            <p data-menu="modal-iframe-privacy-policy" class="text-center mb-2 opacity-90" style="cursor: pointer;" data-tag="privacy_policy"> </p>
+            <a href="#" id="button_firstUse_letsgo" class="btn btn-m btn-full ms-5 me-5 rounded-sm border-highlight color-highlight font-600 font-13 mt-3 mb-3" data-tag="button_lets_start"> </a>
         </div>
         
         
