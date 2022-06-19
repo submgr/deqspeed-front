@@ -37,6 +37,14 @@
           t.parentNode.insertBefore(s, t);
           s.onload = initSDK;
       })(document);
+      console.log("Yandex.Games SDK has been requested for.");
+      YaGames
+        .init()
+        .then(ysdk => {
+            console.log('Yandex SDK initialized');
+            window.ysdk = ysdk;
+        });
+      console.log("Yandex.Games SDK initialisation process has been called.");
       break;
     default:
       localStorage.setItem('data__instanceSource', "direct");
