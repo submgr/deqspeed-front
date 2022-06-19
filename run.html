@@ -33,6 +33,13 @@
           s.onload = initSDK;
       })(document);
       console.log("Yandex.Games SDK has been requested for.");
+      YaGames
+        .init()
+        .then(ysdk => {
+            console.log('Yandex SDK initialized');
+            window.ysdk = ysdk;
+        });
+      console.log("Yandex.Games SDK initialisation process has been called.");
       break;
     default:
       console.log("Nothing to embed as an additional integration.";
