@@ -113,8 +113,7 @@
         <a href="index-projects.html"><i class="fa fa-camera"></i><span>Projects</span></a>
         <a href="#" data-menu="menu-main"><i class="fa fa-bars"></i><span>Menu</span></a>
     </div>--->
-
-        <div class="page-title page-title-fixed">
+        <div class="page-title page-title-center" style="max-width: 940px;">
             <div>
                 <h1 class="font-16 color-highlight mb-n3" data-tag="title_firstline"> ... </h1>
                 <h1 data-tag="title_secondline"> ... </h1>
@@ -130,184 +129,184 @@
             <a href="#" class="page-title-icon shadow-xl bg-theme mt-2 color-theme fakeHeader_element"
                 style="visibility: hidden"><i class="fa fa-share-alt"></i></a>
         </div>
-        <div class="page-title-clear"></div>
+        <div class="d-flex justify-content-center">
+            <div style="width: 799px; max-width: 800px; display: block;"
+                class="speedtest-module-pre page-content speedtest-module speedtest-app__runController speedtest-backfix_backdetect mt-3">
+                <div class="card card-style" id="loading" class="visible">
+                    <div class="content">
+                        <h5 class="font-14 opacity-50" data-tag="app_optimization"> </h5>
+                        <div class="divider mb-3"></div>
 
-        <div
-            class="speedtest-module-pre page-content speedtest-module speedtest-app__runController speedtest-backfix_backdetect mt-3">
-            <div class="card card-style" id="loading" class="visible">
-                <div class="content">
-                    <h5 class="font-14 opacity-50" data-tag="app_optimization"> </h5>
-                    <div class="divider mb-3"></div>
+                        <div class="list-group list-custom-small list-menu ms-0 me-2">
+                            <a href="#" class="menu-active">
+                                <p id="message"><span class="loadCircle"></span><span data-tag="looking_for_theservers"> </span></p>
+                            </a>
+                        </div>
 
-                    <div class="list-group list-custom-small list-menu ms-0 me-2">
-                        <a href="#" class="menu-active">
-                            <p id="message"><span class="loadCircle"></span><span data-tag="looking_for_theservers"> </span></p>
-                        </a>
-                    </div>
-
-                </div>
-            </div>
-            <div id="testWrapper" class="hidden">
-                <div class="card card-style pb-2" id="startTestCard">
-                    <div class="content mb-2">
-                        <p class="mb-n1 color-highlight font-600" data-tag="maincard_subtitle"> </p>
-                        <h2 data-tag="maincard_title"> </h1>
-                            <p class="font-12 mt-n1 mb-0 pb-2 line-height-sm">
-                                <span data-tag="maincard_description"> </span> <a class="opacity-90"
-                                    href="#" id="app_moreAboutMethods" data-tag="maincard_description_learnmore"> </a>.
-                            </p>
-                            <div class="input-style has-borders no-icon mb-4 mt-2" id="serverArea">
-                                <label for="form5" class="color-highlight" data-tag="maincard_label_serverselection"></label>
-                                <select id="server"
-                                    onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
-                                <span><i class="fa fa-chevron-down"></i></span>
-                                <i class="fa fa-check disabled valid color-green-dark"></i>
-                                <i class="fa fa-check disabled invalid color-red-dark"></i>
-                                <em></em>
-                            </div>
-                            <a href="#" id="app__button_changeState"
-                                class="btn btn-full btn-l rounded-s font-600 gradient-highlight" data-tag="start_thetest">Начать тест</a>
                     </div>
                 </div>
-                <div id="test">
-                    <div class="content mt-0 mb-0">
-                        <div class="row mb-0">
-                            <div class="col-6">
-                                <div class="card mx-0 card-style" data-card-height="230">
-                                    <div class="content">
-                                        <h5 class="font-14 opacity-50"><span data-tag="ping"></span> <a href="#"
-                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
-                                        </h5>
-                                        <div class="divider mb-1"></div>
-                                    </div>
-                                    <div class="card-center text-center pb-5">
-                                        <span class="icon icon-xxl rounded-m gradient-highlight"><i
-                                                class="fa bi-broadcast font-30"></i></span>
-                                    </div>
-                                    <div class="card-bottom text-center">
-                                        <div class="content pb-1">
-                                            <h2 class="mb-n1"><span id="pingText">--</span><span
-                                                    class="opacity-30" data-tag="ms"> </span></h2>
-                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span
-                                                    id="betterThan_activeMetric_Ping">—</span>% <span data-tag="users"></span></h6>
+                <div id="testWrapper" class="hidden">
+                    <div class="card card-style pb-2" id="startTestCard">
+                        <div class="content mb-2">
+                            <p class="mb-n1 color-highlight font-600" data-tag="maincard_subtitle"> </p>
+                            <h2 data-tag="maincard_title"> </h1>
+                                <p class="font-12 mt-n1 mb-0 pb-2 line-height-sm">
+                                    <span data-tag="maincard_description"> </span> <a class="opacity-90"
+                                        href="#" id="app_moreAboutMethods" data-tag="maincard_description_learnmore"> </a>.
+                                </p>
+                                <div class="input-style has-borders no-icon mb-4 mt-2" id="serverArea">
+                                    <label for="form5" class="color-highlight" data-tag="maincard_label_serverselection"></label>
+                                    <select id="server"
+                                        onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
+                                    <span><i class="fa fa-chevron-down"></i></span>
+                                    <i class="fa fa-check disabled valid color-green-dark"></i>
+                                    <i class="fa fa-check disabled invalid color-red-dark"></i>
+                                    <em></em>
+                                </div>
+                                <a href="#" id="app__button_changeState"
+                                    class="btn btn-full btn-l rounded-s font-600 gradient-highlight" data-tag="start_thetest">Начать тест</a>
+                        </div>
+                    </div>
+                    <div id="test">
+                        <div class="content mt-0 mb-0">
+                            <div class="row mb-0">
+                                <div class="col-6">
+                                    <div class="card mx-0 card-style" data-card-height="230">
+                                        <div class="content">
+                                            <h5 class="font-14 opacity-50"><span data-tag="ping"></span> <a href="#"
+                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                            </h5>
+                                            <div class="divider mb-1"></div>
+                                        </div>
+                                        <div class="card-center text-center pb-5">
+                                            <span class="icon icon-xxl rounded-m gradient-highlight"><i
+                                                    class="fa bi-broadcast font-30"></i></span>
+                                        </div>
+                                        <div class="card-bottom text-center">
+                                            <div class="content pb-1">
+                                                <h2 class="mb-n1"><span id="pingText">--</span><span
+                                                        class="opacity-30" data-tag="ms"> </span></h2>
+                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span
+                                                        id="betterThan_activeMetric_Ping">—</span>% <span data-tag="users"></span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card mx-0 card-style" data-card-height="230">
-                                    <div class="content mb-0 pb-0">
-                                        <h5 class="font-14 opacity-50"><span data-tag="jitter"></span> <a href="#"
-                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
-                                        </h5>
-                                        <div class="divider mb-2"></div>
-                                    </div>
-                                    <div class="card-center text-center pb-5">
-                                        <span class="icon icon-xxl rounded-m gradient-highlight"><i
-                                                class="fa bi-alt font-30"></i></span>
-                                    </div>
-                                    <div class="card-bottom text-center">
-                                        <div class="content pb-1">
-                                            <h2 class="mb-n1"><span id="jitText">--</span><span
-                                                    class="opacity-30" data-tag="ms"> </span></h2>
-                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span
-                                                    id="betterThan_activeMetric_Jitter">—</span>% <span data-tag="users"></span></h6>
+                                <div class="col-6">
+                                    <div class="card mx-0 card-style" data-card-height="230">
+                                        <div class="content mb-0 pb-0">
+                                            <h5 class="font-14 opacity-50"><span data-tag="jitter"></span> <a href="#"
+                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                            </h5>
+                                            <div class="divider mb-2"></div>
+                                        </div>
+                                        <div class="card-center text-center pb-5">
+                                            <span class="icon icon-xxl rounded-m gradient-highlight"><i
+                                                    class="fa bi-alt font-30"></i></span>
+                                        </div>
+                                        <div class="card-bottom text-center">
+                                            <div class="content pb-1">
+                                                <h2 class="mb-n1"><span id="jitText">--</span><span
+                                                        class="opacity-30" data-tag="ms"> </span></h2>
+                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span
+                                                        id="betterThan_activeMetric_Jitter">—</span>% <span data-tag="users"></span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card mx-0 card-style" data-card-height="230">
-                                    <div class="content mb-0 pb-0">
-                                        <h5 class="font-14 opacity-50"><span data-tag="download_speed"></span> <a href="#"
-                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
-                                        </h5>
-                                        <div class="divider mb-2"></div>
-                                    </div>
-                                    <canvas id="dlMeter" class="meter mb-2"></canvas>
-                                    <div class="card-bottom text-center">
-                                        <div class="content pb-1">
-                                            <h2 class="mb-n1"><span id="dlText">--</span><span
-                                                    class="opacity-30" data-tag="mbps"> </span></h2>
-                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_dl">—</span>%
-                                                <span data-tag="users"></span></h6>
+                                <div class="col-6">
+                                    <div class="card mx-0 card-style" data-card-height="230">
+                                        <div class="content mb-0 pb-0">
+                                            <h5 class="font-14 opacity-50"><span data-tag="download_speed"></span> <a href="#"
+                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                            </h5>
+                                            <div class="divider mb-2"></div>
+                                        </div>
+                                        <canvas id="dlMeter" class="meter mb-2"></canvas>
+                                        <div class="card-bottom text-center">
+                                            <div class="content pb-1">
+                                                <h2 class="mb-n1"><span id="dlText">--</span><span
+                                                        class="opacity-30" data-tag="mbps"> </span></h2>
+                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_dl">—</span>%
+                                                    <span data-tag="users"></span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-6">
-                                <div class="card mx-0 card-style" data-card-height="230">
-                                    <div class="content mb-0 pb-0">
-                                        <h5 class="font-14 opacity-50"><span data-tag="upload_speed"></span> <a href="#"
-                                                class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
-                                        </h5>
-                                        <div class="divider mb-2"></div>
-                                    </div>
-                                    <canvas id="ulMeter" class="meter mb-2"></canvas>
-                                    <div class="card-bottom text-center">
-                                        <div class="content pb-1">
-                                            <h2 class="mb-n1"><span id="ulText">--</span><span
-                                                    class="opacity-30" data-tag="mbps"> </span></h2>
-                                            <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_ul">—</span>%
-                                                <span data-tag="users"></span></h6>
+                                <div class="col-6">
+                                    <div class="card mx-0 card-style" data-card-height="230">
+                                        <div class="content mb-0 pb-0">
+                                            <h5 class="font-14 opacity-50"><span data-tag="upload_speed"></span> <a href="#"
+                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                            </h5>
+                                            <div class="divider mb-2"></div>
+                                        </div>
+                                        <canvas id="ulMeter" class="meter mb-2"></canvas>
+                                        <div class="card-bottom text-center">
+                                            <div class="content pb-1">
+                                                <h2 class="mb-n1"><span id="ulText">--</span><span
+                                                        class="opacity-30" data-tag="mbps"> </span></h2>
+                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_ul">—</span>%
+                                                    <span data-tag="users"></span></h6>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-12">
-                                <div class="card mx-0 card-style" class="visible">
-                                    <div class="content">
-                                        <h5 class="font-14 opacity-40"><span data-tag="about_connection_title"></span></h5>
-                                        <div class="divider mb-2"></div>
-    
-                                        <div class="row mb-0 mt-0">                
-                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_networktype"></span></h5>
-                                            <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_networkType"><span class="loadCircle"></span></span></h5>
-                                            
-                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_ipaddr"></span></h5>
-                                            <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_ip"><span class="loadCircle"></span></span></h5>
-    
-                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_provider"></span></h5>
-                                            <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_provider"><span class="loadCircle"></span></span></h5>
-                                            
-                                            <h5 class="col-5 text-start font-14"><span data-tag="about_connection_addr_irl"></span></h5>
-                                            <h5 class="col-7 text-end font-14 opacity-60 font-400 pb-1"><span id="data_networkAddress"><span class="loadCircle"></span></span></h5>
+                                <div class="col-12">
+                                    <div class="card mx-0 card-style" class="visible">
+                                        <div class="content">
+                                            <h5 class="font-14 opacity-40"><span data-tag="about_connection_title"></span></h5>
+                                            <div class="divider mb-2"></div>
+        
+                                            <div class="row mb-0 mt-0">                
+                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_networktype"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_networkType"><span class="loadCircle"></span></span></h5>
+                                                
+                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_ipaddr"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_ip"><span class="loadCircle"></span></span></h5>
+        
+                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_provider"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_provider"><span class="loadCircle"></span></span></h5>
+                                                
+                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_addr_irl"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400 pb-1"><span id="data_networkAddress"><span class="loadCircle"></span></span></h5>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div id="test_shareBlock">
-                                <div>
-                                    <div class="col-12">
-                                        <a href="#" id="app__button_shareOnStory"
-                                            class="btn btn-full btn-m rounded-xs font-600 bg-green-dark"><span data-tag="share_withstory"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-collection-play"></i></a>
-                                    </div>
-                                    <div class="col-12 pt-2">
-                                        <a href="#" id="app__button_shareOnPage"
-                                            class="btn btn-full btn-m rounded-xs font-600 bg-blue-dark"><span data-tag="share_withpost"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-calendar3-week"></i></a>
-                                    </div>
-                                    <div class="col-12 pt-2">
-                                        <a href="#" id="app__button_reloadTest"
-                                            class="btn btn-full btn-m rounded-xs font-600 bg-dark-dark"><span data-tag="retake_test"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-clockwise"></i></a>
+                                <div id="test_shareBlock">
+                                    <div>
+                                        <div class="col-12">
+                                            <a href="#" id="app__button_shareOnStory"
+                                                class="btn btn-full btn-m rounded-xs font-600 bg-green-dark"><span data-tag="share_withstory"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-collection-play"></i></a>
+                                        </div>
+                                        <div class="col-12 pt-2">
+                                            <a href="#" id="app__button_shareOnPage"
+                                                class="btn btn-full btn-m rounded-xs font-600 bg-blue-dark"><span data-tag="share_withpost"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-calendar3-week"></i></a>
+                                        </div>
+                                        <div class="col-12 pt-2">
+                                            <a href="#" id="app__button_reloadTest"
+                                                class="btn btn-full btn-m rounded-xs font-600 bg-dark-dark"><span data-tag="retake_test"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-clockwise"></i></a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="ipArea">
-                        <span id="ip"></span>
-                    </div>
-                    <div id="shareArea" style="display: none">
-                        <h3>Share results</h3>
-                        <p>Test ID: <span id="testId"></span></p>
-                        <input type="text" value="" id="resultsURL" readonly="readonly"
-                            onclick="this.select();this.focus();this.select();document.execCommand('copy');alert('Link copied')" />
-                        <img style="width: 0px; height: 0px;" src="" id="resultsImg" />
+                        <div id="ipArea">
+                            <span id="ip"></span>
+                        </div>
+                        <div id="shareArea" style="display: none">
+                            <h3>Share results</h3>
+                            <p>Test ID: <span id="testId"></span></p>
+                            <input type="text" value="" id="resultsURL" readonly="readonly"
+                                onclick="this.select();this.focus();this.select();document.execCommand('copy');alert('Link copied')" />
+                            <img style="width: 0px; height: 0px;" src="" id="resultsImg" />
+                        </div>
                     </div>
                 </div>
             </div>
+            <!-- Page content ends here-->
         </div>
-        <!-- Page content ends here-->
 
         <div id="test_loadingNotification" class="snackbar-toast color-white bg-highlight color-white"
             style="margin-bottom: -11%;" data-bs-delay="3000" data-bs-autohide="false"><i
