@@ -22,23 +22,15 @@ app__button_changeState.onclick = function() {
 	//window.location.hash='awaiting';
 	console.log("Registered new event: app__button_changeState click.");
 	if(localStorage.getItem('data__instanceSource') == "yandexgames"){
-		    ysdk.adv.showFullscreenAdv({
+		ysdk.adv.showFullscreenAdv({
 			  callbacks: {
-			  onOpen: () => {
-			    console.log('Video ad open.');
-				  startTest();
+			  onClose: function(wasShown) {
+			    console.log('FullscreenAdv was shown.');
+			    startTest()
 			},
-			  onRewarded: () => {
-			    console.log('Rewarded!');
-				  startTest();
-			},
-			  onClose: () => {
-			    console.log('Video ad closed.');
-				  startTest();
-			}, 
-			  onError: (e) => {
-			    console.log('Error while open video ad:', e);
-				  startTest();
+			  onError: function(error) {
+			    console.log('FullscreenAdv was NOT shown. An ERROR, details:' + error);
+			    startTest()
 			}
 		    }
 		})
