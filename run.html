@@ -55,18 +55,18 @@
                 app_lang = user_lang;
             }
 
-            if(user_lang == "be" || user_lang == "kk" || user_lang == "uk" || user_lang == "uz"){
+            if (user_lang == "be" || user_lang == "kk" || user_lang == "uk" || user_lang == "uz") {
                 app_lang = "ru";
             }
 
-            if(localStorage.getItem("data__instanceSource") == "yandexgames"){
+            if (localStorage.getItem("data__instanceSource") == "yandexgames") {
 
                 var ysdk_lang = YandexGamesSDKEnvironment.i18n.lang;
-                if(available_languages.includes(ysdk_lang) == true){
+                if (available_languages.includes(ysdk_lang) == true) {
                     app_lang = ysdk_lang;
                 }
 
-                if(ysdk_lang == "be" || ysdk_lang == "kk" || ysdk_lang == "uk" || ysdk_lang == "uz"){
+                if (ysdk_lang == "be" || ysdk_lang == "kk" || ysdk_lang == "uk" || ysdk_lang == "uz") {
                     app_lang = "ru";
                 }
             }
@@ -139,7 +139,8 @@
 
                         <div class="list-group list-custom-small list-menu ms-0 me-2">
                             <a href="#" class="menu-active">
-                                <p id="message"><span class="loadCircle"></span><span data-tag="looking_for_theservers"> </span></p>
+                                <p id="message"><span class="loadCircle"></span><span data-tag="looking_for_theservers">
+                                    </span></p>
                             </a>
                         </div>
 
@@ -149,13 +150,15 @@
                     <div class="card card-style pb-2" id="startTestCard">
                         <div class="content mb-2">
                             <p class="mb-n1 color-highlight font-600" data-tag="maincard_subtitle"> </p>
-                            <h2 data-tag="maincard_title"> </h1>
+                            <h2 data-tag="maincard_title">
+                                </h1>
                                 <p class="font-12 mt-n1 mb-0 pb-2 line-height-sm">
-                                    <span data-tag="maincard_description"> </span> <a class="opacity-90"
-                                        href="#" id="app_moreAboutMethods" data-tag="maincard_description_learnmore"> </a>.
+                                    <span data-tag="maincard_description"> </span> <a class="opacity-90" href="#"
+                                        id="app_moreAboutMethods" data-tag="maincard_description_learnmore"> </a>.
                                 </p>
                                 <div class="input-style has-borders no-icon mb-4 mt-2" id="serverArea">
-                                    <label for="form5" class="color-highlight" data-tag="maincard_label_serverselection"></label>
+                                    <label for="form5" class="color-highlight"
+                                        data-tag="maincard_label_serverselection"></label>
                                     <select id="server"
                                         onchange="s.setSelectedServer(SPEEDTEST_SERVERS[this.value])"></select>
                                     <span><i class="fa fa-chevron-down"></i></span>
@@ -164,7 +167,8 @@
                                     <em></em>
                                 </div>
                                 <a href="#" id="app__button_changeState"
-                                    class="btn btn-full btn-l rounded-s font-600 gradient-highlight" data-tag="start_thetest">Начать тест</a>
+                                    class="btn btn-full btn-l rounded-s font-600 gradient-highlight"
+                                    data-tag="start_thetest">Начать тест</a>
                         </div>
                     </div>
                     <div id="test">
@@ -174,7 +178,8 @@
                                     <div class="card mx-0 card-style" data-card-height="230">
                                         <div class="content">
                                             <h5 class="font-14 opacity-50"><span data-tag="ping"></span> <a href="#"
-                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                                    class="float-end color-highlight"><i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </h5>
                                             <div class="divider mb-1"></div>
                                         </div>
@@ -184,10 +189,11 @@
                                         </div>
                                         <div class="card-bottom text-center">
                                             <div class="content pb-1">
-                                                <h2 class="mb-n1"><span id="pingText">--</span><span
-                                                        class="opacity-30" data-tag="ms"> </span></h2>
+                                                <h2 class="mb-n1"><span id="pingText">--</span><span class="opacity-30"
+                                                        data-tag="ms"> </span></h2>
                                                 <h6 class="opacity-30"><span data-tag="better_than"></span> <span
-                                                        id="betterThan_activeMetric_Ping">—</span>% <span data-tag="users"></span></h6>
+                                                        id="betterThan_activeMetric_Ping">—</span>% <span
+                                                        data-tag="users"></span></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -196,7 +202,8 @@
                                     <div class="card mx-0 card-style" data-card-height="230">
                                         <div class="content mb-0 pb-0">
                                             <h5 class="font-14 opacity-50"><span data-tag="jitter"></span> <a href="#"
-                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                                    class="float-end color-highlight"><i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </h5>
                                             <div class="divider mb-2"></div>
                                         </div>
@@ -206,10 +213,11 @@
                                         </div>
                                         <div class="card-bottom text-center">
                                             <div class="content pb-1">
-                                                <h2 class="mb-n1"><span id="jitText">--</span><span
-                                                        class="opacity-30" data-tag="ms"> </span></h2>
+                                                <h2 class="mb-n1"><span id="jitText">--</span><span class="opacity-30"
+                                                        data-tag="ms"> </span></h2>
                                                 <h6 class="opacity-30"><span data-tag="better_than"></span> <span
-                                                        id="betterThan_activeMetric_Jitter">—</span>% <span data-tag="users"></span></h6>
+                                                        id="betterThan_activeMetric_Jitter">—</span>% <span
+                                                        data-tag="users"></span></h6>
                                             </div>
                                         </div>
                                     </div>
@@ -217,17 +225,19 @@
                                 <div class="col-6">
                                     <div class="card mx-0 card-style" data-card-height="230">
                                         <div class="content mb-0 pb-0">
-                                            <h5 class="font-14 opacity-50"><span data-tag="download_speed"></span> <a href="#"
-                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                            <h5 class="font-14 opacity-50"><span data-tag="download_speed"></span> <a
+                                                    href="#" class="float-end color-highlight"><i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </h5>
                                             <div class="divider mb-2"></div>
                                         </div>
                                         <canvas id="dlMeter" class="meter mb-2"></canvas>
                                         <div class="card-bottom text-center">
                                             <div class="content pb-1">
-                                                <h2 class="mb-n1"><span id="dlText">--</span><span
-                                                        class="opacity-30" data-tag="mbps"> </span></h2>
-                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_dl">—</span>%
+                                                <h2 class="mb-n1"><span id="dlText">--</span><span class="opacity-30"
+                                                        data-tag="mbps"> </span></h2>
+                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span
+                                                        id="betterThan_activeMetric_dl">—</span>%
                                                     <span data-tag="users"></span></h6>
                                             </div>
                                         </div>
@@ -236,17 +246,19 @@
                                 <div class="col-6">
                                     <div class="card mx-0 card-style" data-card-height="230">
                                         <div class="content mb-0 pb-0">
-                                            <h5 class="font-14 opacity-50"><span data-tag="upload_speed"></span> <a href="#"
-                                                    class="float-end color-highlight"><i class="fa fa-arrow-right"></i></a>
+                                            <h5 class="font-14 opacity-50"><span data-tag="upload_speed"></span> <a
+                                                    href="#" class="float-end color-highlight"><i
+                                                        class="fa fa-arrow-right"></i></a>
                                             </h5>
                                             <div class="divider mb-2"></div>
                                         </div>
                                         <canvas id="ulMeter" class="meter mb-2"></canvas>
                                         <div class="card-bottom text-center">
                                             <div class="content pb-1">
-                                                <h2 class="mb-n1"><span id="ulText">--</span><span
-                                                        class="opacity-30" data-tag="mbps"> </span></h2>
-                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span id="betterThan_activeMetric_ul">—</span>%
+                                                <h2 class="mb-n1"><span id="ulText">--</span><span class="opacity-30"
+                                                        data-tag="mbps"> </span></h2>
+                                                <h6 class="opacity-30"><span data-tag="better_than"></span> <span
+                                                        id="betterThan_activeMetric_ul">—</span>%
                                                     <span data-tag="users"></span></h6>
                                             </div>
                                         </div>
@@ -255,21 +267,32 @@
                                 <div class="col-12">
                                     <div class="card mx-0 card-style" class="visible">
                                         <div class="content">
-                                            <h5 class="font-14 opacity-40"><span data-tag="about_connection_title"></span></h5>
+                                            <h5 class="font-14 opacity-40"><span
+                                                    data-tag="about_connection_title"></span></h5>
                                             <div class="divider mb-2"></div>
-        
-                                            <div class="row mb-0 mt-0">                
-                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_networktype"></span></h5>
-                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_networkType"><span class="loadCircle"></span></span></h5>
-                                                
-                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_ipaddr"></span></h5>
-                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_ip"><span class="loadCircle"></span></span></h5>
-        
-                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_provider"></span></h5>
-                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span id="data_provider"><span class="loadCircle"></span></span></h5>
-                                                
-                                                <h5 class="col-5 text-start font-14"><span data-tag="about_connection_addr_irl"></span></h5>
-                                                <h5 class="col-7 text-end font-14 opacity-60 font-400 pb-1"><span id="data_networkAddress"><span class="loadCircle"></span></span></h5>
+
+                                            <div class="row mb-0 mt-0">
+                                                <h5 class="col-5 text-start font-14"><span
+                                                        data-tag="about_connection_networktype"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span
+                                                        id="data_networkType"><span class="loadCircle"></span></span>
+                                                </h5>
+
+                                                <h5 class="col-5 text-start font-14"><span
+                                                        data-tag="about_connection_ipaddr"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span
+                                                        id="data_ip"><span class="loadCircle"></span></span></h5>
+
+                                                <h5 class="col-5 text-start font-14"><span
+                                                        data-tag="about_connection_provider"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400"><span
+                                                        id="data_provider"><span class="loadCircle"></span></span></h5>
+
+                                                <h5 class="col-5 text-start font-14"><span
+                                                        data-tag="about_connection_addr_irl"></span></h5>
+                                                <h5 class="col-7 text-end font-14 opacity-60 font-400 pb-1"><span
+                                                        id="data_networkAddress"><span class="loadCircle"></span></span>
+                                                </h5>
                                             </div>
                                         </div>
                                     </div>
@@ -278,15 +301,21 @@
                                     <div>
                                         <div class="col-12">
                                             <a href="#" id="app__button_shareOnStory"
-                                                class="btn btn-full btn-m rounded-xs font-600 bg-green-dark"><span data-tag="share_withstory"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-collection-play"></i></a>
+                                                class="btn btn-full btn-m rounded-xs font-600 bg-green-dark"><span
+                                                    data-tag="share_withstory"></span>&nbsp;&nbsp;&nbsp;<i
+                                                    class="bi bi-collection-play"></i></a>
                                         </div>
                                         <div class="col-12 pt-2">
                                             <a href="#" id="app__button_shareOnPage"
-                                                class="btn btn-full btn-m rounded-xs font-600 bg-blue-dark"><span data-tag="share_withpost"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-calendar3-week"></i></a>
+                                                class="btn btn-full btn-m rounded-xs font-600 bg-blue-dark"><span
+                                                    data-tag="share_withpost"></span>&nbsp;&nbsp;&nbsp;<i
+                                                    class="bi bi-calendar3-week"></i></a>
                                         </div>
                                         <div class="col-12 pt-2">
                                             <a href="#" id="app__button_reloadTest"
-                                                class="btn btn-full btn-m rounded-xs font-600 bg-dark-dark"><span data-tag="retake_test"></span>&nbsp;&nbsp;&nbsp;<i class="bi bi-arrow-clockwise"></i></a>
+                                                class="btn btn-full btn-m rounded-xs font-600 bg-dark-dark"><span
+                                                    data-tag="retake_test"></span>&nbsp;&nbsp;&nbsp;<i
+                                                    class="bi bi-arrow-clockwise"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -310,7 +339,8 @@
 
         <div id="test_loadingNotification" class="snackbar-toast color-white bg-highlight color-white"
             style="margin-bottom: -11%;" data-bs-delay="3000" data-bs-autohide="false"><i
-                class="fa fa-sync fa-spin me-3"></i><span data-tag="toast_loadingnotificator_mainline"></span> <span id="test_loadingNotification_text" data-tag="perfoming_ping">пинг</span>...
+                class="fa fa-sync fa-spin me-3"></i><span data-tag="toast_loadingnotificator_mainline"></span> <span
+                id="test_loadingNotification_text" data-tag="perfoming_ping">пинг</span>...
         </div>
 
         <!-- Main Menu-->

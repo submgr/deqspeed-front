@@ -61,3 +61,8 @@ bajb_backdetect.OnBack = function()
 {
 window.location = document.referrer;
 }
+
+if(localStorage.getItem('data__instanceSource') != "vkapps"){
+	document.getElementById('app__button_shareOnStory').style.display = 'none';
+	document.getElementById('app__button_shareOnPage').style.display = 'none';
+}
