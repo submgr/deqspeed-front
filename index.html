@@ -25,8 +25,8 @@
     get: (searchParams, prop) => searchParams.get(prop),
   });
   
-  alert("Detected the following source: " + params.source);
-  switch (qs["source"]) {
+  console.log("Detected the following source: " + params.source);
+  switch (params.source) {
     case "yandexgames":
       localStorage.setItem('data__instanceSource', "yandexgames");
       break;
