@@ -22,7 +22,7 @@ app__button_changeState.onclick = function() {
 	//window.location.hash='awaiting';
 	console.log("Registered new event: app__button_changeState click.");
 	if(localStorage.getItem('data__instanceSource') == "yandexgames"){
-		    ysdk.adv.showRewardedVideo({
+		    ysdk.adv.showFullscreenAdv({
 			  callbacks: {
 			  onOpen: () => {
 			    console.log('Video ad open.');
