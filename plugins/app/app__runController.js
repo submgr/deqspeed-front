@@ -94,7 +94,3 @@ app__shareThisMiniApp.onclick = function () {
 		}
 	}
 };
-
-document.addEventListener('DOMContentLoaded', function() {
-    alert("Ready!");
-}, false);
