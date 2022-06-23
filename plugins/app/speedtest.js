@@ -312,23 +312,6 @@ const shareData = {
 	url: 'https://yandex.com/games/app/188540'
 }
 
-app__shareThisMiniApp.onclick = function () {
-	console.log("got click for: share this app");
-	if (localStorage.getItem('data__instanceSource') == "vkapps") {
-		window.parent.postMessage({
-			type: "vk_appshare",
-			url: "https://vk.com/app8045693"
-		}, '*');
-	} else {
-
-		try {
-			navigator.share(shareData)
-			console.log("[app_/shareinfo] Shared successfully!");
-		} catch (err) {
-			console.log("[app_/shareinfo] Error on share, details: " + err);
-		}
-	}
-};
 app__button_reloadTest.onclick = function () {
 	window.location.reload();
 };
