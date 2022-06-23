@@ -306,12 +306,6 @@ app__button_shareOnPage.onclick = function () {
 	}, '*');
 };
 
-const shareData = {
-	title: 'DeqSpeed',
-	text: get_translation("yagames_share_aboutapp"),
-	url: 'https://yandex.com/games/app/188540'
-}
-
 app__button_reloadTest.onclick = function () {
 	window.location.reload();
 };
