@@ -32,7 +32,7 @@
     "mbps": "Mbps",
 
     "better_than": "лучше",
-    "users": "пользователей",
+    "users": "<br>пользователей",
 
     "about_connection_title": "Сведения о подключении",
     "about_connection_networktype": "Тип соединения",
