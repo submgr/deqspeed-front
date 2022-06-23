@@ -46,7 +46,13 @@
     </script>
     <script>
         function runTranslation_textUpdate() {
-            let user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
+            
+            if(navigator.language.indexOf('-') == -1){
+                let user_lang = navigator.language;
+            }else{
+                let user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
+            }
+            
             var available_languages = ['ru', 'en'];
 
             let app_lang = "en";
