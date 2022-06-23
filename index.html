@@ -20,11 +20,11 @@
     <script type="text/javascript" src="scripts/translate.js"></script>
     <script>
         function runTranslation_textUpdate() {
-            
+
             if(navigator.language.indexOf('-') == -1){
-                let user_lang = navigator.language;
+                user_lang = navigator.language;
             }else{
-                let user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
+                user_lang = navigator.language.substr(0, navigator.language.indexOf('-'));
             }
             
             var available_languages = ['ru', 'en'];
