@@ -76,7 +76,7 @@ app__shareThisMiniApp.onclick = function () {
 	console.log("got click for: share this app");
 	const shareData = {
 		title: 'DeqSpeed',
-		text: "demo" + get_translation("yagames_share_aboutapp"),
+		text: get_translation("yagames_share_aboutapp"),
 		url: 'https://yandex.com/games/app/188540'
 	}
 	if (localStorage.getItem('data__instanceSource') == "vkapps") {
