@@ -68,7 +68,7 @@ if(localStorage.getItem('data__instanceSource') != "vkapps"){
 }
 
 
-if(!navigator.share){
+if(localStorage.getItem('data__instanceSource') == "yandexgames"){
 	app__shareThisMiniApp.style.display = 'none';
 }
 
