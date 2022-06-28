@@ -25,6 +25,7 @@
                         .then(ysdk => {
                             console.log('Yandex SDK initialized');
                             window.ysdk = ysdk;
+                            runTranslation_textUpdate();
                         });
                 }
                 console.log("Yandex.Games SDK will be requested right now...");
@@ -93,7 +94,7 @@
 </script>
 </head>
 
-<body class="theme-dark" onload="runTranslation_textUpdate();">
+<body class="theme-dark">
 
 <div id="preloader"><div class="spinner-border color-highlight" role="status"></div></div>
 
