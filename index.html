@@ -176,7 +176,7 @@
         <div class="slider-bottom-button bg-theme">
             <p data-menu="modal-iframe-privacy-policy" id="privacypolicy_link" class="text-center mb-2 opacity-90" style="cursor: pointer;"
                 data-tag="privacy_policy"> </p>
-            <a href="#" id="button_firstUse_letsgo"
+            <a href="#" id="button_firstUse_letsgo" onclick="button_firstUse_letsgo()"
                 class="btn btn-m btn-full ms-5 me-5 rounded-sm border-highlight color-highlight font-600 font-13 mt-3 mb-3"
                 data-tag="button_lets_start"> </a>
         </div>
@@ -204,7 +204,7 @@
     <script type="text/javascript" src="scripts/custom.js"></script>
 
     <script type="text/javascript" src="plugins/app/app__mainController.js"></script>
-    
+
     <script>
         if (localStorage.getItem("data__instanceSource") == "yandexgames") {
             document.getElementById('privacypolicy_link').style.display = 'none';

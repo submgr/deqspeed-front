@@ -30,7 +30,7 @@ if(window.location.hash == "vk_app") {
     }
 }
 
-button_firstUse_letsgo.onclick = function() {
+function button_firstUse_letsgo() {
     console.log("Registered on [app/main]: click(button_firstUse_letsgo)");
     if(localStorage.getItem('alreadyUsed') == null){
     	localStorage.setItem('alreadyUsed', 'true');
