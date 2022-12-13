@@ -1374,12 +1374,12 @@ document.addEventListener('DOMContentLoaded', () => {
             plug: 'backdetect/backfix.min.js',
             trigger: '.speedtest-backfix_backdetect'
           },
-          {
-            id: 'speedtest',
-            plug: 'app/speedtest_Additional.js',
-            style: 'app/speedtest.css',
-            trigger: '.speedtest-module-pre'
-          },
+          //{
+          //  id: 'speedtest',
+          //  plug: 'app/speedtest_Additional.js',
+          //  style: 'app/speedtest.css', 
+          //  trigger: '.speedtest-module-pre'
+          //},
           {
             id: 'uniqueID', // to detect if loaded and unload if needed
             plug: 'pluginName/plugin.js', // the main plugin javascript file
@@ -1440,22 +1440,22 @@ document.addEventListener('DOMContentLoaded', () => {
             plug: 'embedly/embedly.js',
             trigger: '.embedly-card'
           },
-          {
-            id: 'app_mainController',
-            plug: 'app/app__mainController.js',
-            trigger: '.speedtest-app__mainController'
-          },
-          {
-            id: 'speedtest_Main',
-            plug: 'app/speedtest.js',
-            call: 'app/speedtest_call.js',
-            trigger: '.speedtest-module'
-          },
-          {
-            id: 'app__runController',
-            plug: 'app/app__runController.js',
-            trigger: '.speedtest-app__runController'
-          }
+          //{
+          //  id: 'app_mainController',
+          //  plug: 'app/app__mainController.js',
+          //  trigger: '.speedtest-app__mainController'
+          //},
+          //{
+          //  id: 'speedtest_Main',
+          //  plug: 'app/speedtest.js',
+          //  call: 'app/speedtest_call.js',
+          //  trigger: '.speedtest-module'
+          //},
+          //{
+          //  id: 'app__runController',
+          //  plug: 'app/app__runController.js',
+          //  trigger: '.speedtest-app__runController'
+          //}
         ];
 
 
