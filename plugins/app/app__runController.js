@@ -18,7 +18,7 @@ function startTest(){
 	initUI();
 	startStop();
 }
-app__button_changeState.onclick = function() {
+function app__button_changeState() {
 	//window.location.hash='awaiting';
 	console.log("Registered new event: app__button_changeState click.");
 	if(localStorage.getItem('data__instanceSource') == "yandexgames"){
