@@ -72,7 +72,7 @@ if(localStorage.getItem('data__instanceSource') == "yandexgames"){
 	app__shareThisMiniApp.style.display = 'none';
 }
 
-app__shareThisMiniApp.onclick = function () {
+function app__shareThisMiniApp() {
 	console.log("got click for: share this app");
 	const shareData = {
 		title: 'DeqSpeed',
