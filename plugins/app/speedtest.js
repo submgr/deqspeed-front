@@ -301,6 +301,6 @@ app__shareThisMiniApp.onclick = function() {
 		  }
 	}
   };
-app__button_reloadTest.onclick = function() {
+  function app__button_reloadTest() {
 	window.location.reload();
   };
