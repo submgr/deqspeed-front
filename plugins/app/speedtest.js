@@ -269,7 +269,7 @@ function initUI(){
 	I("ip").textContent="";
 }
 
-app_moreAboutMethods.onclick = function() {
+function app_moreAboutMethods() {
 	window.location.href = "article-about-methods.html";
   };
 
