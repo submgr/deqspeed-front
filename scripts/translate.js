@@ -4,6 +4,7 @@ var LngObject;
 console.log("init of translate.js")
 
 function Translate() { 
+    console.log("call of translate.js")
     //initialization
     this.init =  function(attribute, lng){
         this.attribute = attribute;
@@ -51,4 +52,4 @@ function get_translation(key){
     }
 }
 
-Translate()
+//Translate()
