@@ -1,6 +1,8 @@
 var lang_data_storage;
 var LngObject;
 
+console.log("init of translate.js")
+
 function Translate() { 
     //initialization
     this.init =  function(attribute, lng){
