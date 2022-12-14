@@ -51,5 +51,3 @@ function get_translation(key){
         return LngObject[key];
     }
 }
-
-//Translate()
