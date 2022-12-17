@@ -69,7 +69,10 @@ if(localStorage.getItem('data__instanceSource') != "vkapps"){
 
 
 if(localStorage.getItem('data__instanceSource') == "yandexgames"){
-	app__shareThisMiniApp.style.display = 'none';
+	if(app__shareThisMiniApp.style){
+		app__shareThisMiniApp.style.display = 'none';
+	}
+	
 }
 
 function app__shareThisMiniApp() {
