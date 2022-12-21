@@ -302,5 +302,5 @@ app__shareThisMiniApp.onclick = function() {
 	}
   };
   function app__button_reloadTest() {
-	location.href = "run.html#random"
+	location.href = "index.html"
   };
