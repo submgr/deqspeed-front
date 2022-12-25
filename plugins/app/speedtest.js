@@ -302,5 +302,5 @@ app__shareThisMiniApp.onclick = function() {
 	}
   };
   function app__button_reloadTest() {
-	location.href = "index.html"
+	location.href = "index.html?source=yandexgames"
   };
