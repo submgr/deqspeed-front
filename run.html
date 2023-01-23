@@ -57,6 +57,10 @@
                 }
             }
 
+            if(localStorage.getItem("usedbefore_if") != "true"){
+                location.reload()
+            }
+
             var translate = new Translate();
             var currentLng = app_lang;
             var attributeName = 'data-tag';
