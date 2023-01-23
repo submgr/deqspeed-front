@@ -40,6 +40,7 @@
                         .then(ysdk => {
                             console.log('Yandex SDK initialized');
                             window.ysdk = ysdk;
+                            localStorage.setItem("yalang", YandexGamesSDKEnvironment.i18n.lang)
                         });
                 }
                 console.log("Yandex.Games SDK will be requested right now...");

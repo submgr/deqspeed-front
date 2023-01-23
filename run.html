@@ -44,22 +44,18 @@
                 app_lang = "ru";
             }
 
-            //if (localStorage.getItem("data__instanceSource") == "yandexgames") {
-            //
-            //    if(YandexGamesSDKEnvironment){
-            //        var ysdk_lang = YandexGamesSDKEnvironment.i18n.lang;
-            //    }else{
-            //       var ysdk_lang = "ru"
-            //    }
-            //
-            //    if (available_languages.includes(ysdk_lang) == true) {
-            //        app_lang = ysdk_lang;
-            //    }
-            //
-            //    if (ysdk_lang == "be" || ysdk_lang == "kk" || ysdk_lang == "uk" || ysdk_lang == "uz") {
-            //        app_lang = "ru";
-            //    }
-            //}
+            if (localStorage.getItem("data__instanceSource") == "yandexgames") {
+            
+                var ysdk_lang = localStorage.getItem("yalang")
+            
+                if (available_languages.includes(ysdk_lang) == true) {
+                    app_lang = ysdk_lang;
+                }
+            
+                if (ysdk_lang == "be" || ysdk_lang == "kk" || ysdk_lang == "uk" || ysdk_lang == "uz") {
+                    app_lang = "ru";
+                }
+            }
 
             var translate = new Translate();
             var currentLng = app_lang;
