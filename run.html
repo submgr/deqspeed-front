@@ -46,7 +46,12 @@
 
             if (localStorage.getItem("data__instanceSource") == "yandexgames") {
 
-                var ysdk_lang = YandexGamesSDKEnvironment.i18n.lang;
+                var ysdk_lang = "ru";
+                try {
+                    ysdk_lang = YandexGamesSDKEnvironment.i18n.lang;
+                } catch (error) {
+                    console.warn(error)
+                }
                 if (available_languages.includes(ysdk_lang) == true) {
                     app_lang = ysdk_lang;
                 }
