@@ -72,7 +72,7 @@ var settings = {
 	overheadCompensationFactor: 1.06, //can be changed to compensatie for transport overhead. (see doc.md for some other values)
 	useMebibits: false, //if set to true, speed will be reported in mebibits/s instead of megabits/s
 	telemetry_level: 1, // 0=disabled, 1=basic (results only), 2=full (results and timing) 3=debug (results+log)
-	url_telemetry: "https://deqspeed.herokuapp.com/telemetry/register", // path to the script that adds telemetry data to the database
+	url_telemetry: "https://deqspeed-backend.deqstudio.com/telemetry/register", // path to the script that adds telemetry data to the database
 	telemetry_extra: "", //extra data that can be passed to the telemetry through the settings
     forceIE11Workaround: false //when set to true, it will foce the IE11 upload test on all browsers. Debug only
 };

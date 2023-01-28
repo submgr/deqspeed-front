@@ -10,7 +10,7 @@ var SPEEDTEST_SERVERS=[
 		dlURL:"deqspeed.pages.dev/bins/test-5mb.bin",  //path to download test on this server (garbage.php or replacement)
 		ulURL:"deqspeed.pages.dev/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"deqspeed.pages.dev/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
-		getIpURL:"https://192.168.1.38:6500"  //path to getIP on this server (getIP.php or replacement)
+		getIpURL:"https://deqspeed-backend.deqstudio.com/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	},
 	{
 		name:"Local Server — DEV", //user friendly name for the server
@@ -18,7 +18,7 @@ var SPEEDTEST_SERVERS=[
 		dlURL:"192.168.1.38:5500/deqspeed-front/bins/test-5mb.bin",  //path to download test on this server (garbage.php or replacement)
 		ulURL:"192.168.1.38:5500/deqspeed-front/bins/empty.dat",  //path to upload test on this server (empty.php or replacement)
 		pingURL:"192.168.1.38:5500/deqspeed-front/bins/empty.dat",  //path to ping/jitter test on this server (empty.php or replacement)
-		getIpURL:"https://192.168.1.38:6500"  //path to getIP on this server (getIP.php or replacement)
+		getIpURL:"https://deqspeed-backend.deqstudio.com/utils/getip"  //path to getIP on this server (getIP.php or replacement)
 	}
 ];
 
